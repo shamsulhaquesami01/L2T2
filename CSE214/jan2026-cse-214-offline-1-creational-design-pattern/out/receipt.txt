@@ -1,0 +1,16 @@
+FOODFLOW RECEIPT
+------------------------------------------------------------------------
+Order ID: FF-1001
+Customer: Alice (01700000000)
+Type: DELIVERY
+Address: House-12 Road-7 Dhanmondi
+Payment: CASH
+------------------------------------------------------------------------
+2x Classic Burger       LARGE, extra cheese, spicy         876.00     876.00
+------------------------------------------------------------------------
+Subtotal:                     876.00
+Service charges:               80.00
+Discount:                      87.60
+Total:                        868.40
+Instructions: CLI order
+
