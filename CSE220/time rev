@@ -1,0 +1,58 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def time_reverse_discrete(n: np.ndarray, x: np.ndarray) -> np.ndarray:
+    """
+    Time reversal for discrete signals: y[n] = x[-n]
+    
+    This safely handles BOTH symmetric and asymmetric grids.
+    Instead of blindly reversing the memory array (x[::-1]), it queries 
+    the exact negative integer coordinates and zero-pads the boundaries.
+    """
+    # 1. The query times are the exact mathematical inverse of the time axis
+    n_query = -n
+    
+    # 2. Extract values. If -n falls outside the original recorded grid, 
+    # np.interp safely forces it to 0.0.
+    return np.interp(n_query, n, x, left=0.0, right=0.0)
+
+
+# ==========================================
+# DEMONSTRATION ON AN ASYMMETRIC GRID
+# ==========================================
+def main():
+    # 1. Generate an ASYMMETRIC time grid (from -2 to 5)
+    n = np.arange(-2, 6) 
+    
+    # 2. Generate a simple discrete ramp signal x[n] = n (only for n >= 0)
+    x = np.zeros_like(n)
+    x[n >= 0] = n[n >= 0]
+    
+    # 3. Apply the time reversal
+    y = time_reverse_discrete(n, x)
+    
+    # 4. Plotting
+    fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+    
+    # Plot Original
+    axs[0].stem(n, x, basefmt=' ')
+    axs[0].set_title("Original Signal: $x[n]$")
+    axs[0].set_xticks(n)
+    axs[0].axvline(0, color='black', linewidth=1)
+    axs[0].axhline(0, color='black', linewidth=1)
+    axs[0].grid(True, alpha=0.3)
+    
+    # Plot Reversed
+    axs[1].stem(n, y, basefmt=' ', linefmt='red', markerfmt='ro')
+    axs[1].set_title("Reversed Signal: $y[n] = x[-n]$")
+    axs[1].set_xticks(n)
+    axs[1].axvline(0, color='black', linewidth=1)
+    axs[1].axhline(0, color='black', linewidth=1)
+    axs[1].grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.show()
+
+if __name__ == "__main__":
+    main()
+
