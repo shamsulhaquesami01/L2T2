@@ -1,5 +1,11 @@
 import io.CsvMenuLoader;
 import io.ReceiptWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 import model.MenuItem;
 import model.Order;
 import model.OrderItem;
@@ -8,19 +14,13 @@ import service.MenuCatalog;
 import service.OrderService;
 import service.ReceiptService;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Functional test harness for FoodFlow.
  *
  * The harness checks behavior, not the internal design. After students refactor
  * the code, these tests should still pass.
  */
+
 public class TestHarness {
     public static void main(String[] args) {
         System.out.println("=== FoodFlow Test Harness ===\n");

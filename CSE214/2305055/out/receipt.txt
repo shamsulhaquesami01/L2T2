@@ -7,10 +7,11 @@ Address: House-12 Road-7 Dhanmondi
 Payment: CASH
 ------------------------------------------------------------------------
 2x Classic Burger       LARGE, extra cheese, spicy         876.00     876.00
+2x Iced Tea             MEDIUM                             240.00     240.00
 ------------------------------------------------------------------------
-Subtotal:                     876.00
+Subtotal:                    1116.00
 Service charges:               80.00
-Discount:                      87.60
-Total:                        868.40
+Discount:                     111.60
+Total:                       1084.40
 Instructions: CLI order
 
