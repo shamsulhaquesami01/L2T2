@@ -1,0 +1,24 @@
+# Fdb version 4
+["pdflatex"] 1784216158.95583 "d:/LocalDev/projects/L2T2/cse200/test/demo.tex" "demo.pdf" "demo" 1784216159.05119 0
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1784215439 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1784215439 1288 655e228510b4c2a1abe905c368440826 ""
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1784215439 1292 296a67155bdbfc32aa9c636f21e91433 ""
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1784215448 32080 340ef9bf63678554ee606688e7b5339d ""
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1784215448 35752 024fb6c41858982481f6968b5fc26508 ""
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1784215448 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "d:/LocalDev/TinyTex/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1784215448 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
+  "d:/LocalDev/TinyTex/texmf-dist/tex/latex/base/article.cls" 1784215466 20144 e6010938fb17dfbae90a243ad7cf351d ""
+  "d:/LocalDev/TinyTex/texmf-dist/tex/latex/base/size10.clo" 1784215466 8448 f7d8bfe7b7a3986fbf9022b21b7800cc ""
+  "d:/LocalDev/TinyTex/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1784215469 30909 7dedb28cb21a1e79c47a35a35ae3c507 ""
+  "d:/LocalDev/TinyTex/texmf-dist/web2c/texmf.cnf" 1784215475 43815 bcd8835056a2dfac260166a1c9541261 ""
+  "d:/LocalDev/TinyTex/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1784215476 494510 baa0643b8e7d58eeb772bd4e50035879 ""
+  "d:/LocalDev/TinyTex/texmf-var/web2c/pdftex/pdflatex.fmt" 1784215476 2306659 729c5c63d8cf73650d00e3504c2fc1c1 ""
+  "d:/LocalDev/TinyTex/texmf.cnf" 1784215416 903 164c5b127cd0d6dc91abad2f62421ea2 ""
+  "d:/LocalDev/projects/L2T2/cse200/test/demo.tex" 1784216158 300 8bafcc5baca19edfa35d36651e5c1d5c ""
+  "demo.aux" 1784216159 230 6225d09d6e91a916f8b4f09a653d3942 "pdflatex"
+  "demo.tex" 1784216158 300 8bafcc5baca19edfa35d36651e5c1d5c ""
+  (generated)
+  "demo.aux"
+  "demo.log"
+  "demo.pdf"
+  (rewritten before read)
