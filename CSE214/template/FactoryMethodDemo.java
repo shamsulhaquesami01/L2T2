@@ -1,4 +1,4 @@
-package CSE214.template;
+package template;
 
 // --- FACTORY METHOD ---
 // 1. Common Product Interface

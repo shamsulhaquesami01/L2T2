@@ -1,4 +1,4 @@
-package CSE214.template;
+package template;
 
 // --- ABSTRACT FACTORY ---
 // 1. Abstract Products (The components)

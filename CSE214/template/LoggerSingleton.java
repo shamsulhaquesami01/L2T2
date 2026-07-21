@@ -1,4 +1,4 @@
-package CSE214.template;
+package template;
 // --- SINGLETON ---
 public class LoggerSingleton {
     // 1. Private static instance

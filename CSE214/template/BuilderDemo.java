@@ -1,4 +1,4 @@
-package CSE214.template;
+package template;
 
 // --- BUILDER ---
 import java.util.ArrayList;
