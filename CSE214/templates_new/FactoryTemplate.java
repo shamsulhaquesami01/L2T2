@@ -31,6 +31,7 @@
  *   "Road"/"Sea"-> "SMS"/"Email"/"Push"    Logistics      -> NotificationService
  * ========================================================================== */
 package templates_new;
+
 public class FactoryTemplate {
 
     public static void main(String[] args) {
@@ -66,36 +67,50 @@ public class FactoryTemplate {
     }
 }
 
-/* ===========================================================================
+/*
+ * ===========================================================================
  * PRODUCT INTERFACE - what every created object has in common.
- * ======================================================================== */
+ * ========================================================================
+ */
 interface Transport {
     void deliver();
 }
 
-/* ---- CONCRETE PRODUCTS ---------------------------------------------------
+/*
+ * ---- CONCRETE PRODUCTS ---------------------------------------------------
  * Keep as many as the question needs, delete the rest, copy one to add more.
- * ------------------------------------------------------------------------ */
+ * ------------------------------------------------------------------------
+ */
 class Truck implements Transport {
-    public void deliver() { System.out.println("   Truck   : delivering cargo by ROAD."); }
+    public void deliver() {
+        System.out.println("   Truck   : delivering cargo by ROAD.");
+    }
 }
 
 class Ship implements Transport {
-    public void deliver() { System.out.println("   Ship    : delivering cargo by SEA."); }
+    public void deliver() {
+        System.out.println("   Ship    : delivering cargo by SEA.");
+    }
 }
 
 class Airplane implements Transport {
-    public void deliver() { System.out.println("   Airplane: delivering cargo by AIR."); }
+    public void deliver() {
+        System.out.println("   Airplane: delivering cargo by AIR.");
+    }
 }
 
 class Train implements Transport {
-    public void deliver() { System.out.println("   Train   : delivering cargo by RAIL."); }
+    public void deliver() {
+        System.out.println("   Train   : delivering cargo by RAIL.");
+    }
 }
 
-/* ===========================================================================
+/*
+ * ===========================================================================
  * WAY 1 : SIMPLE FACTORY
  * One place in the whole program that knows the concrete class names.
- * ======================================================================== */
+ * ========================================================================
+ */
 class TransportFactory {
 
     public static Transport create(String type) {
@@ -104,24 +119,30 @@ class TransportFactory {
         }
         switch (type.toLowerCase()) {
             case "road":
-            case "truck":    return new Truck();
+            case "truck":
+                return new Truck();
             case "sea":
-            case "ship":     return new Ship();
+            case "ship":
+                return new Ship();
             case "air":
-            case "airplane": return new Airplane();
+            case "airplane":
+                return new Airplane();
             case "rail":
-            case "train":    return new Train();
+            case "train":
+                return new Train();
             default:
                 throw new IllegalArgumentException("Unknown transport type: " + type);
         }
     }
 }
 
-/* ===========================================================================
+/*
+ * ===========================================================================
  * WAY 2 : FACTORY METHOD (GoF)
  * The Creator has real business logic (planDelivery) and delegates the
  * "which class do I instantiate?" decision to its subclasses.
- * ======================================================================== */
+ * ========================================================================
+ */
 abstract class Logistics {
 
     // THE FACTORY METHOD. Return type = the PRODUCT INTERFACE, never a
@@ -130,41 +151,61 @@ abstract class Logistics {
 
     // The creator's real job. Note it works only with the interface.
     public void planDelivery() {
-        Transport transport = createTransport();   // <- factory method call
+        Transport transport = createTransport(); // <- factory method call
         System.out.println("[Logistics] route planned, handing over to carrier:");
         transport.deliver();
     }
 }
 
-/* ---- CONCRETE CREATORS : one per product, each overrides the factory method */
+/*
+ * ---- CONCRETE CREATORS : one per product, each overrides the factory method
+ */
 class RoadLogistics extends Logistics {
-    @Override public Transport createTransport() { return new Truck(); }
+    @Override
+    public Transport createTransport() {
+        return new Truck();
+    }
 }
 
 class SeaLogistics extends Logistics {
-    @Override public Transport createTransport() { return new Ship(); }
+    @Override
+    public Transport createTransport() {
+        return new Ship();
+    }
 }
 
 class AirLogistics extends Logistics {
-    @Override public Transport createTransport() { return new Airplane(); }
+    @Override
+    public Transport createTransport() {
+        return new Airplane();
+    }
 }
 
 class RailLogistics extends Logistics {
-    @Override public Transport createTransport() { return new Train(); }
+    @Override
+    public Transport createTransport() {
+        return new Train();
+    }
 }
 
-/* ---- Selector: turns the client's String into the right CREATOR ----------
+/*
+ * ---- Selector: turns the client's String into the right CREATOR ----------
  * This is what lets you satisfy BOTH "client passes a string" AND
  * "Factory Method pattern" in the same answer.
- * ------------------------------------------------------------------------ */
+ * ------------------------------------------------------------------------
+ */
 class LogisticsFactory {
 
     public static Logistics getLogistics(String mode) {
         switch (mode.toLowerCase()) {
-            case "road": return new RoadLogistics();
-            case "sea":  return new SeaLogistics();
-            case "air":  return new AirLogistics();
-            case "rail": return new RailLogistics();
+            case "road":
+                return new RoadLogistics();
+            case "sea":
+                return new SeaLogistics();
+            case "air":
+                return new AirLogistics();
+            case "rail":
+                return new RailLogistics();
             default:
                 throw new IllegalArgumentException("Unknown delivery mode: " + mode);
         }
