@@ -15,22 +15,32 @@ from signal_lti import DiscreteSignal, LTISystem, readable_time_ticks
 
 # Build a DiscreteSignal from a range and a list of values.
 def make_signal(start_time, end_time, values):
-    raise NotImplementedError("Complete make_signal")
+    sig = DiscreteSignal(start_time, end_time)
+    for i, t in enumerate(sig.times()):
+        sig.set_value_at_time(t, values[i])
+    return sig
 
 
 # Build a DiscreteSignal from selected sample values.
 def signal_from_samples(start_time, end_time, samples):
-    raise NotImplementedError("Complete signal_from_samples")
+    sig = DiscreteSignal(start_time, end_time)
+    if isinstance(samples, dict):
+        for t, val in samples.items():
+            sig.set_value_at_time(t, val)
+    elif isinstance(samples, list):
+        for i, t in enumerate(sig.times()):
+            sig.set_value_at_time(t, samples[i])
+    return sig
 
 
 # Return the identity impulse response: h[0] = 1.
 def impulse_identity():
-    raise NotImplementedError("Complete impulse_identity")
+    return make_signal(0, 0, [1.0])
 
 
 # Return moving-average h[n] = 1/length for n = 0,...,length-1.
 def impulse_moving_average(length):
-    raise NotImplementedError("Complete impulse_moving_average")
+    return make_signal(0, length - 1, [1.0 / length] * length)
 
 
 # Return the 3-point moving average: h[0] = h[1] = h[2] = 1/3.
@@ -50,12 +60,12 @@ def impulse_moving_average_7():
 
 # Return weighted smoothing: h[0] = 0.5, h[1] = 0.3, h[2] = 0.2.
 def impulse_weighted_smoothing():
-    raise NotImplementedError("Complete impulse_weighted_smoothing")
+   return make_signal(0, 2, [0.5, 0.3, 0.2])
 
 
 # Return first difference: h[0] = 1, h[1] = -1.
 def impulse_first_difference():
-    raise NotImplementedError("Complete impulse_first_difference")
+    return make_signal(0, 1, [1.0, -1.0])
 
 
 BUILT_IN_IMPULSES = [
@@ -128,7 +138,16 @@ def print_signal(signal, name):
 
 # Return the maximum absolute sample difference between two signals.
 def max_absolute_difference(first_signal, second_signal):
-    raise NotImplementedError("Complete max_absolute_difference")
+    min_start = min(first_signal.start_time, second_signal.start_time)
+    max_end = max(first_signal.end_time, second_signal.end_time)
+    
+    max_diff = 0.0
+    for t in range(min_start, max_end + 1):
+        diff = abs(first_signal.get_value_at_time(t) - second_signal.get_value_at_time(t))
+        if diff > max_diff:
+            max_diff = diff
+            
+    return max_diff
 
 
 def normalized_grayscale_rgb(signal):

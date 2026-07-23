@@ -19,39 +19,52 @@ class DiscreteSignal:
 
     # Create a finite discrete-time signal over the given integer range.
     def __init__(self, start_time, end_time):
-        raise NotImplementedError("Complete the DiscreteSignal constructor")
+        self.start_time=start_time
+        self.end_time=end_time
+        self.values=np.zeros(end_time-start_time+1)
 
     # Return the number of stored samples in the signal.
     def __len__(self):
-        raise NotImplementedError("Complete __len__")
+        return len(self.values)
 
     # Return the integer time indices covered by the signal.
     def times(self):
-        raise NotImplementedError("Complete times")
+        return range(self.start_time ,self.end_time+1)
 
     # Return the signal value at the given time index.
     def get_value_at_time(self, t):
-        raise NotImplementedError("Complete get_value_at_time")
+        if (self.start_time <= t <= self.end_time): return self.values[t-self.start_time]
+        return 0.0
 
     # Set the signal value at the given time index.
     def set_value_at_time(self, t, value):
-        raise NotImplementedError("Complete set_value_at_time")
+         if (self.start_time <= t <= self.end_time): self.values[t-self.start_time]= float(value)
+         else: raise IndexError(f"Time index {t} out of bounds [{self.start_time} , {self.end_time}]")
 
     # Return a shifted copy of the signal.
     def shift(self, k):
-        raise NotImplementedError("Complete shift")
+        new_signal = DiscreteSignal(self.start_time+k, self.end_time+k)
+        new_signal.values = self.values.copy()
+        return new_signal
 
     # Return the sum of this signal and another signal.
     def add(self, other):
-        raise NotImplementedError("Complete add")
+        start = min(self.start_time, other.start_time)
+        end= max(self.end_time, other.end_time)
+        new_signal = DiscreteSignal(start,end)
+        for t in new_signal.times():
+            new_signal.set_value_at_time(t,self.get_value_at_time(t)+other.get_value_at_time(t))
+        return new_signal
 
     # Return a scaled copy of the signal.
     def multiply(self, scalar):
-        raise NotImplementedError("Complete multiply")
+        new_signal = DiscreteSignal(self.start_time, self.end_time)
+        new_signal.values=self.values*float(scalar)
+        return new_signal
 
     # Return the nonzero samples of the signal.
     def nonzero_samples(self, tolerance=1e-12):
-        raise NotImplementedError("Complete nonzero_samples")
+        return [(t,val) for t,val in zip(self.times(),self.values) if abs(val)>tolerance]
 
     def plot(self, title, save_path=None, ax=None):
         import matplotlib.pyplot as plt
@@ -84,28 +97,57 @@ class LTISystem:
 
     # Store the impulse response that defines the LTI system.
     def __init__(self, impulse_response):
-        raise NotImplementedError("Complete the LTISystem constructor")
+        self.h=impulse_response
 
     # Return the output time range for the convolution result.
     def output_range(self, input_signal):
-        raise NotImplementedError("Complete output_range")
+        start = self.h.start_time + input_signal.start_time
+        end = self.h.end_time + input_signal.end_time
+        return start,end
 
     # Return all shifted and scaled impulse-response components for the input.
     def get_response_components(self, input_signal):
-        raise NotImplementedError("Complete get_response_components")
+        components = []
+        for k, x_k in input_signal.nonzero_samples():
+            shifted_h = self.h.shift(k)
+            scaled_shifted_h = shifted_h.multiply(x_k)
+            components.append(scaled_shifted_h)
+        return components
 
     # Return the system output using superposition of response components.
     def output_by_superposition(self, input_signal):
-        raise NotImplementedError("Complete output_by_superposition")
+        out_start, out_end = self.output_range(input_signal)
+        y = DiscreteSignal(out_start, out_end)
+        
+        components = self.get_response_components(input_signal)
+        for comp in components:
+            y = y.add(comp)
+            
+        return y
 
     # Return the nonzero product terms that contribute to one output sample.
     def get_contributions_at_time(self, input_signal, n):
-        raise NotImplementedError("Complete get_contributions_at_time")
+        contributions = []
+        for k in input_signal.times():
+            x_k = input_signal.get_value_at_time(k)
+            if abs(x_k) > 1e-12:
+                h_nk = self.h.get_value_at_time(n - k)
+                term = x_k * h_nk
+                if abs(term) > 1e-12:
+                    contributions.append(term)
+        return contributions
 
     # Return one output sample of the LTI system.
     def output_at_time(self, input_signal, n):
-        raise NotImplementedError("Complete output_at_time")
+        contributions = self.get_contributions_at_time(input_signal, n)
+        return sum(contributions)
 
     # Return the complete output signal of the LTI system.
     def output(self, input_signal):
-        raise NotImplementedError("Complete output")
+        out_start, out_end = self.output_range(input_signal)
+        y = DiscreteSignal(out_start, out_end)
+        
+        for n in y.times():
+            y.set_value_at_time(n, self.output_at_time(input_signal, n))
+            
+        return y
