@@ -60,7 +60,7 @@ def impulse_moving_average_7():
 
 # Return weighted smoothing: h[0] = 0.5, h[1] = 0.3, h[2] = 0.2.
 def impulse_weighted_smoothing():
-   return make_signal(0, 2, [0.5, 0.3, 0.2])
+    return make_signal(0, 2, [0.5, 0.3, 0.2])
 
 
 # Return first difference: h[0] = 1, h[1] = -1.

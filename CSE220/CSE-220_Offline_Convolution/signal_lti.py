@@ -105,13 +105,15 @@ class LTISystem:
         end = self.h.end_time + input_signal.end_time
         return start,end
 
-    # Return all shifted and scaled impulse-response components for the input.
+    # Arguments: input_signal is a DiscreteSignal representing x[n].
+    # Returns: list of (k, component_signal) for each nonzero input sample x[k].
+    # Example: x[2] = 3 contributes the component 3*h[n - 2].
     def get_response_components(self, input_signal):
         components = []
         for k, x_k in input_signal.nonzero_samples():
             shifted_h = self.h.shift(k)
             scaled_shifted_h = shifted_h.multiply(x_k)
-            components.append(scaled_shifted_h)
+            components.append((k, scaled_shifted_h))
         return components
 
     # Return the system output using superposition of response components.
@@ -120,27 +122,30 @@ class LTISystem:
         y = DiscreteSignal(out_start, out_end)
         
         components = self.get_response_components(input_signal)
-        for comp in components:
-            y = y.add(comp)
+        for k, component in components:
+            y = y.add(component)
             
         return y
 
-    # Return the nonzero product terms that contribute to one output sample.
+    # Arguments: input_signal is a DiscreteSignal and n is one output time index.
+    # Returns: list of (k, x_k, h_n_minus_k, product) nonzero contribution tuples.
+    # Example: a term may look like (2, 3.0, 0.5, 1.5) for x[2]h[n - 2].
     def get_contributions_at_time(self, input_signal, n):
         contributions = []
         for k in input_signal.times():
-            x_k = input_signal.get_value_at_time(k)
+            x_k = float(input_signal.get_value_at_time(k))
             if abs(x_k) > 1e-12:
-                h_nk = self.h.get_value_at_time(n - k)
+                h_nk = float(self.h.get_value_at_time(n - k))
                 term = x_k * h_nk
                 if abs(term) > 1e-12:
-                    contributions.append(term)
+                    contributions.append((k, x_k, h_nk, term))
         return contributions
 
-    # Return one output sample of the LTI system.
+    # Arguments: input_signal is a DiscreteSignal and n is one output time index.
+    # Returns: float, the convolution-sum value y[n].
     def output_at_time(self, input_signal, n):
         contributions = self.get_contributions_at_time(input_signal, n)
-        return sum(contributions)
+        return float(sum(term for _, _, _, term in contributions))
 
     # Return the complete output signal of the LTI system.
     def output(self, input_signal):
