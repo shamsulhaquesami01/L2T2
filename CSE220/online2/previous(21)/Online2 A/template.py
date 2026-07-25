@@ -1,6 +1,9 @@
 import numpy as np
 
-
+# Stock Market Prices as a Python List
+# price_list = list(map(int, input("Stock Prices: ").split()))
+# n = int(input("Window size: "))
+# alpha = float(input("Alpha: "))
 def readable_time_ticks(time_values, max_labels=18):
     if len(time_values) <= max_labels:
         return time_values
@@ -173,33 +176,22 @@ def window_slice(y, window_size, data_length):
 def fmt(values, places=2):
     return ", ".join(f"{v:.{places}f}" for v in values)
 
-def unweighted_kernel(window_size):
-    return signal_from_list([1.0 / window_size] * window_size)
+# You may use the following input for testing purpose
+price_list = [10,11,12,9,10,13,15,16,17,18]
+n = 3
+alpha = 0.8
+def exponential_kernel(window_size, alpha):
+    return signal_from_list([alpha * (1 - alpha) ** k for k in range(window_size)])
 
 
-def weighted_kernel(window_size):
-    total = window_size * (window_size + 1) / 2         # 1 + 2 + ... + n
-    return signal_from_list([(window_size - i) / total for i in range(window_size)])
-
-
-def moving_average(prices, window_size, kernel):
+def exponential_smoothing(prices, window_size, alpha):
     x = signal_from_list(prices)
-    y = LTISystem(kernel).output(x)
+    y = LTISystem(exponential_kernel(window_size, alpha)).output(x)
     return window_slice(y, window_size, len(prices))
 
-# Stock Market Prices as a Python List
-price_list = list(map(int, input("Stock Prices: ").split()))
-n = int(input("Window size: "))
+# Determine the values after performing Exponential Smoothing
+# The length of exsm should be = len(price_list) - n + 1
+exsm = fmt(exponential_smoothing(price_list,n,alpha))
 
-# price_list = [1, 2, 3, 4, 5, 6, 7, 8]
-# n = 4
-# Please determine uma and wma.
-# Unweighted Moving Averages as a Python list
-uma = []
-uma = fmt(moving_average(price_list,n,unweighted_kernel(n)))
-# Weighted Moving Averages as a Python list
-wma = []
-wma=fmt(moving_average(price_list,n,weighted_kernel(n)))
-# Print the two moving averages
-print("Unweighted Moving Averages: " + ", ".join(f"{num:.2f}" for num in uma))
-print("Weighted Moving Averages:   " + ", ".join(f"{num:.2f}" for num in wma))
+print("Exponential Smoothing: " + ", ".join(f"{num:.2f}" for num in exsm))
+# Output should be: 11.68, 9.47, 9.82, 12.29, 14.40, 15.62, 16.64, 17.63

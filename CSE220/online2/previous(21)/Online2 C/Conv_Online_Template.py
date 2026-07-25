@@ -1,5 +1,4 @@
-import numpy as np
-
+# Input for first polynomial
 
 def readable_time_ticks(time_values, max_labels=18):
     if len(time_values) <= max_labels:
@@ -173,33 +172,22 @@ def window_slice(y, window_size, data_length):
 def fmt(values, places=2):
     return ", ".join(f"{v:.{places}f}" for v in values)
 
-def unweighted_kernel(window_size):
-    return signal_from_list([1.0 / window_size] * window_size)
+if __name__ == "__main__":
+    d1 = int(input("Degree of the first polynomial: "))
+    poly1 = list(map(int, input("Coefficients: ").split()))
 
 
-def weighted_kernel(window_size):
-    total = window_size * (window_size + 1) / 2         # 1 + 2 + ... + n
-    return signal_from_list([(window_size - i) / total for i in range(window_size)])
+    # Input for second polynomial
+    d2 = int(input("Degree of the second polynomial: "))
+    poly2 = list(map(int, input("Coefficients: ").split()))
 
+    def multiply_polynomials(coeff_a, coeff_b):
+        x = signal_from_list(coeff_a)
+        h = signal_from_list(coeff_b)
+        y = LTISystem(h).output(x)
+        return [y.get_value_at_time(t) for t in y.times()]
+    # Multiply the polynomials using Discrete-Time Convolution
 
-def moving_average(prices, window_size, kernel):
-    x = signal_from_list(prices)
-    y = LTISystem(kernel).output(x)
-    return window_slice(y, window_size, len(prices))
-
-# Stock Market Prices as a Python List
-price_list = list(map(int, input("Stock Prices: ").split()))
-n = int(input("Window size: "))
-
-# price_list = [1, 2, 3, 4, 5, 6, 7, 8]
-# n = 4
-# Please determine uma and wma.
-# Unweighted Moving Averages as a Python list
-uma = []
-uma = fmt(moving_average(price_list,n,unweighted_kernel(n)))
-# Weighted Moving Averages as a Python list
-wma = []
-wma=fmt(moving_average(price_list,n,weighted_kernel(n)))
-# Print the two moving averages
-print("Unweighted Moving Averages: " + ", ".join(f"{num:.2f}" for num in uma))
-print("Weighted Moving Averages:   " + ", ".join(f"{num:.2f}" for num in wma))
+    print("  Poly (3 -2 1)x(2 0 -3 1) ->",
+        [int(round(v)) for v in multiply_polynomials(poly1,poly2 )])
+    # Print the result
