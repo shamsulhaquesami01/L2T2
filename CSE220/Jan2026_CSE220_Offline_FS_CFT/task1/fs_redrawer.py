@@ -51,8 +51,6 @@ class FourierEpicycles:
 
         n may be zero, positive, or negative.
         """
-        # The negative sign makes this the *analysis* formula: it measures
-        # how much of the n-th rotating complex exponential occurs in signal.
         kernel = np.exp(-1j * n * self.omega * self.t)
         integrand = self.signal * kernel
         integral = np.trapezoid(integrand, self.t)
@@ -77,8 +75,6 @@ class FourierEpicycles:
         implementation must support both, since the provided
         plotting/animation code calls this both ways.
         """
-        # np.asarray lets the same expression work for one time or many
-        # times.  The final sum combines the contributions of all harmonics.
         t = np.asarray(t)
         reconstruction = np.zeros_like(t, dtype=complex)
 
@@ -91,8 +87,6 @@ class FourierEpicycles:
 if __name__ == "__main__":
     import sys
     from pathlib import Path
-
-    # Usage: python3 assignment.py <path_to_svg> [n_harmonics] [comparison_png_path] [gif_path]
     if len(sys.argv) < 2:
         print("Usage: python3 assignment.py <path_to_svg> [n_harmonics] [comparison_png_path] [gif_path]")
         print("Example: python3 assignment.py svgs/heart.svg 150 heart_comparison.png heart_epicycles.gif")
