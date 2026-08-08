@@ -582,7 +582,7 @@ public class SmartHomeTestRunner {
         // then the following line should NOT compile:
         //
         //     new EcoMode(new SmartLight(), 100);  // SHOULD NOT COMPILE
-        //
+        // 
         // We can't test a compile error at runtime, so this test just
         // verifies that EcoMode works correctly with a Room.
         Room r = new Room("Test");
