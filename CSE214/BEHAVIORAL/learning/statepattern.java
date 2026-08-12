@@ -244,6 +244,7 @@ public class statepattern {
         machine.ejectQuarter();
         machine.turnCrank(); // Should fail because we took the quarter back
 
+        //comnnnne
         System.out.println("\n--- Test 3: Burning through inventory to test Sold Out ---");
         machine.insertQuarter();
         machine.turnCrank();
