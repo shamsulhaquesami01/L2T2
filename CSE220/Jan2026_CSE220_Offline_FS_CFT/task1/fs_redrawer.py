@@ -88,6 +88,7 @@ class FourierEpicycles:
 if __name__ == "__main__":
     import sys
     from pathlib import Path
+    # Usage: python3 assignment.py <path_to_svg> [n_harmonics] [comparison_png_path] [gif_path]
     if len(sys.argv) < 2:
         print("Usage: python3 assignment.py <path_to_svg> [n_harmonics] [comparison_png_path] [gif_path]")
         print("Example: python3 assignment.py svgs/heart.svg 150 heart_comparison.png heart_epicycles.gif")
