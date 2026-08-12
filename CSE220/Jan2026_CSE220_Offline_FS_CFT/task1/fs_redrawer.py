@@ -51,7 +51,6 @@ class FourierEpicycles:
 
         n may be zero, positive, or negative.
         """
-             #offline
              
         kernel = np.exp(-1j * n * self.omega * self.t)
         integrand = self.signal * kernel

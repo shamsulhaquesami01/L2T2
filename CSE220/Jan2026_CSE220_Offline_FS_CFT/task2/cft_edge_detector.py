@@ -67,23 +67,15 @@ class CFT2D:
         -------
         real, imag : two 2D numpy arrays, each of shape self.I.shape
         """
-        # cos_x[u, x] means cos(2*pi*u*x), and similarly for the other
-        # three tables.  Building the tables once avoids repeating the same
-        # trigonometric calculations inside Python loops.
         cos_x = np.cos(2 * np.pi * self.u[:, np.newaxis] * self.x[np.newaxis, :])
         sin_x = np.sin(2 * np.pi * self.u[:, np.newaxis] * self.x[np.newaxis, :])
         cos_y = np.cos(2 * np.pi * self.v[:, np.newaxis] * self.y[np.newaxis, :])
         sin_y = np.sin(2 * np.pi * self.v[:, np.newaxis] * self.y[np.newaxis, :])
 
-        # First integration: over x.  The result of each integration has
-        # shape (y, u), because x is the axis being integrated away.
         image_by_x_frequency = self.I[:, np.newaxis, :]
         x_cos = np.trapezoid(image_by_x_frequency * cos_x[np.newaxis, :, :], self.x, axis=2)
         x_sin = np.trapezoid(image_by_x_frequency * sin_x[np.newaxis, :, :], self.x, axis=2)
 
-        # Second integration: over y.  Expand the angle sums:
-        # cos(a+b) = cos(a)cos(b) - sin(a)sin(b)
-        # sin(a+b) = sin(a)cos(b) + cos(a)sin(b)
         real_uv = np.trapezoid(
             x_cos[:, :, np.newaxis] * cos_y.T[:, np.newaxis, :]
             - x_sin[:, :, np.newaxis] * sin_y.T[:, np.newaxis, :],
@@ -97,8 +89,6 @@ class CFT2D:
             axis=0,
         )
 
-        # The calculations naturally produced (u, v).  Images use rows as
-        # y/v and columns as x/u, so transpose to return (v, u).
         return real_uv.T, imag_uv.T
 
     def plot_magnitude(self):
@@ -185,16 +175,12 @@ class InverseCFT2D:
         cos_v = np.cos(2 * np.pi * self.v[:, np.newaxis] * self.y[np.newaxis, :])
         sin_v = np.sin(2 * np.pi * self.v[:, np.newaxis] * self.y[np.newaxis, :])
 
-        # First integrate over v.  Each result has one value for every
-        # output y-coordinate and every u-frequency: shape (y, u).
+
         real_cos_v = np.trapezoid(self.real[np.newaxis, :, :] * cos_v.T[:, :, np.newaxis], self.v, axis=1)
         real_sin_v = np.trapezoid(self.real[np.newaxis, :, :] * sin_v.T[:, :, np.newaxis], self.v, axis=1)
         imag_cos_v = np.trapezoid(self.imag[np.newaxis, :, :] * cos_v.T[:, :, np.newaxis], self.v, axis=1)
         imag_sin_v = np.trapezoid(self.imag[np.newaxis, :, :] * sin_v.T[:, :, np.newaxis], self.v, axis=1)
-
-        # Re{(real + j*imag) * exp(j*(a+b))} becomes
-        # cos(a) * (real*cos(b) - imag*sin(b))
-        # - sin(a) * (real*sin(b) + imag*cos(b)).
+        
         first_part = real_cos_v - imag_sin_v
         second_part = real_sin_v + imag_cos_v
         image = np.trapezoid(
