@@ -1,5 +1,5 @@
-import sys
-from pathlib import Path
+
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -31,26 +31,40 @@ class FourierEpicycles:
         return reconstruction
 
 
-def calculate_mse(array1, array2):
+def calculate_mse(array1, array2, mask=None):
     """
     Computes the Mean Squared Error for magnitude and wrapped phase.
     """
     mse_mag = np.mean((np.abs(array1) - np.abs(array2))**2)
-    phase_diff = (np.angle(array1) - np.angle(array2) + np.pi) % (2 * np.pi) - np.pi
+    phase_diff = (np.angle(array1) - np.angle(array2) + np.pi) % (2 * np.pi)
+    if mask is not None:
+        phase_diff = phase_diff[mask]- np.pi
     mse_phase = np.mean(phase_diff**2)
     return mse_mag, mse_phase
 
+def shift_periodic(t, z, t0, T):
+    t_shifted = (t - t0) % T
+    z_re = np.interp(t_shifted, t, np.real(z))
+    if np.iscomplexobj(z):
+        z_im = np.interp(t_shifted, t, np.imag(z))
+        return z_re + 1j * z_im
+    return z_re   # stays real-valued if the input was real
+
 if __name__ == "__main__":
-    t=  np.linspace(0,2*np.pi,50)
-    z = np.cos(t)+0.6*1j*np.sin(2*t)
-    fs = FourierEpicycles(t,z,100)
-    fs.calculate_all_coefficients()
-    cn= np.array(list(fs.coeffs.values()))
-    t0= fs.T/6
-    g=np.roll(z,t0)
-    fs_shifted=FourierEpicycles(t,g,100)
-    fs_shifted.calculate_all_coefficients()
-    dn=np.array(list(fs_shifted.coeffs.values()))
-    dn_theory=cn*np.exp(-1j*fs.omega*t0)
-    mse_mag , mse_phase = calculate_mse(dn,dn_theory)
+    t=np.linspace(0,2*np.pi,3000)
+    x=np.cos(t)+0.3j*np.sin(3*t)
+    y=-np.sin(t)+0.9j*np.cos(3*t)
+    fsx=FourierEpicycles(t,x,100)
+    fsx.calculate_all_coefficients()
+    cn=np.array(list(fsx.coeffs.values()))
+    fsy=FourierEpicycles(t,y,100)
+    fsy.calculate_all_coefficients()
+    dn=np.array(list(fsy.coeffs.values()))
+    n_values=np.array(list(fsx.coeffs.keys()))
+    dn_theory=1j*n_values*fsx.omega*cn
+
+    mask = np.abs(cn) > 1e-6
+    mse_mag, mse_phase = calculate_mse(dn,dn_theory,mask=mask)
+    print(mse_mag)
+    print(mse_phase)
 
