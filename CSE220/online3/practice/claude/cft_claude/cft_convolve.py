@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-
 def compute_cft(t, x, f):
     t = np.asarray(t)
     x = np.asarray(x)
@@ -17,7 +16,6 @@ def compute_cft(t, x, f):
         t,
         axis=1
     )
-
     return X
 
 def conv_numeric(t, x1, x2):
@@ -58,7 +56,6 @@ def rectangular_pulse(t):
         1.0,
         0.0
     )
-
 
 # ============================================================
 # 4. x2(t): TRIANGULAR PULSE
