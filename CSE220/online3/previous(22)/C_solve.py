@@ -9,7 +9,7 @@ class ContinuousSignal:
 class SignalGenerator(ContinuousSignal):
     def __init__(self, t):
         super().__init__(t)
-
+    
     def generate_base_signal(self, scale_a=1, phase_f0=0):
         """
         TODO 1: Generate x(t) = Square(a*t) + Triangle(a*t)
