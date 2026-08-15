@@ -43,12 +43,16 @@ def calculate_mse(array1, array2, mask=None):
     return mse_mag, mse_phase
 
 def shift_periodic(t, z, t0, T):
-    t_shifted = (t - t0) % T
+    """
+    Universally shifts a periodic signal regardless of the time array's starting bound.
+    """
+    t_shifted = ((t - t0 - t[0]) % T) + t[0]
+    
     z_re = np.interp(t_shifted, t, np.real(z))
     if np.iscomplexobj(z):
         z_im = np.interp(t_shifted, t, np.imag(z))
         return z_re + 1j * z_im
-    return z_re   # stays real-valued if the input was real
+    return z_re  # stays real-valued if the input was real
 
 if __name__ == "__main__":
     t=  np.linspace(0,2*np.pi,4000)
