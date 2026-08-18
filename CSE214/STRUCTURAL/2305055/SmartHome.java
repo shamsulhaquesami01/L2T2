@@ -14,17 +14,21 @@ interface SmartDevice {
     }
 }
 
-class SmartLight implements SmartDevice {
-    private boolean on = false;
-
+abstract class SmartDeviceLeaf implements SmartDevice{
+    protected boolean on=false;
+    @Override
     public void activate() {
-        on = true;
+        on=true;
     }
 
+    @Override
     public void deactivate() {
-        on = false;
+        on=false;
     }
 
+}
+
+class SmartLight extends SmartDeviceLeaf {
     public double getPowerUsage() {
         return on ? 10.0 : 0.0;
     }
@@ -34,16 +38,7 @@ class SmartLight implements SmartDevice {
     }
 }
 
-class SmartThermostat implements SmartDevice {
-    private boolean on = false;
-
-    public void activate() {
-        on = true;
-    }
-
-    public void deactivate() {
-        on = false;
-    }
+class SmartThermostat extends SmartDeviceLeaf {
 
     public double getPowerUsage() {
         return on ? 150.0 : 0.0;
@@ -54,17 +49,7 @@ class SmartThermostat implements SmartDevice {
     }
 }
 
-class SmartSpeaker implements SmartDevice {
-    private boolean on = false;
-
-    public void activate() {
-        on = true;
-    }
-
-    public void deactivate() {
-        on = false;
-    }
-
+class SmartSpeaker extends SmartDeviceLeaf {
     public double getPowerUsage() {
         return on ? 5.0 : 0.0;
     }
@@ -74,7 +59,12 @@ class SmartSpeaker implements SmartDevice {
     }
 }
 
-class Room implements SmartDevice {
+abstract class SmartDeviceComposite implements SmartDevice{
+
+  
+}
+
+class Room extends SmartDeviceComposite {
     private final String name;
     private final List<SmartDevice> devices = new ArrayList<>(); // interface type!
 
@@ -119,7 +109,7 @@ class Room implements SmartDevice {
     }
 }
 
-class Home implements SmartDevice {
+class Home extends SmartDeviceComposite {
     private final String name;
     private final List<SmartDevice> rooms = new ArrayList<>();
 
@@ -284,17 +274,34 @@ class PowerThrottled extends DeviceDecorator {
     }
 }
 
-class EcoMode extends DeviceDecorator {
+abstract class SpecialDecorator extends SmartDeviceComposite{
+   protected final SmartDeviceComposite wrappee;
+
+    protected SpecialDecorator(SmartDeviceComposite wrappee) {
+        this.wrappee = wrappee;
+    }
+
+
+    public void deactivate() {
+        wrappee.deactivate();
+    }
+
+    public List<SmartDevice> getChildren() {
+        return wrappee.getChildren();
+    }
+}
+
+class EcoMode extends SpecialDecorator {
     private final double budget;
 
-    public EcoMode(SmartDevice wrappee, double budget) {
+    public EcoMode(SmartDeviceComposite wrappee, double budget) {
         super(wrappee);
         this.budget = budget;
     }
 
     @Override
     public void activate() {
-        super.activate();
+        wrappee.activate();
         enforceBudget();
     }
 
@@ -308,14 +315,19 @@ class EcoMode extends DeviceDecorator {
 
     @Override
     public String getStatus() {
-        return "[ECO: " + budget + "W budget]\n" + super.getStatus();
+        return "[ECO: " + budget + "W budget]\n" + wrappee.getStatus();
     }
+    @Override
+       public double getPowerUsage() {
+        return wrappee.getPowerUsage();
+    }
+
 }
 
-class GuestMode extends DeviceDecorator {
+class GuestMode extends SpecialDecorator {
     private final Set<Class<?>> allowedTypes;
 
-    public GuestMode(SmartDevice wrappee, Set<Class<?>> allowedTypes) {
+    public GuestMode(SmartDeviceComposite wrappee, Set<Class<?>> allowedTypes) {
         super(wrappee);
         this.allowedTypes = allowedTypes;
     }
