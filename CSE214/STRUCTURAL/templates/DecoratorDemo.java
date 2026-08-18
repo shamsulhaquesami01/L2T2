@@ -8,22 +8,22 @@ interface DataSource {
 }
 
 class FileDataSource implements DataSource {
-    private String filename;
+    private String name;
     private String dataBuffer = ""; // Simulating a file
 
-    public FileDataSource(String filename) {
-        this.filename = filename;
+    public FileDataSource(String name) {
+        this.name = name;
     }
 
     @Override
     public void writeData(String data) {
-        System.out.println("Writing to [" + filename + "]: " + data);
+        System.out.println("Writing to [" + name + "]: " + data);
         this.dataBuffer = data;
     }
 
     @Override
     public String readData() {
-        System.out.println("Reading from [" + filename + "]");
+        System.out.println("Reading from [" + name + "]");
         return dataBuffer;
     }
 }
@@ -31,10 +31,10 @@ class FileDataSource implements DataSource {
 // ==========================================
 // 2. Base Decorator
 // ==========================================
-abstract class DataSourceDecorator implements DataSource {
+abstract class Decorator implements DataSource {
     protected DataSource wrappee;
 
-    public DataSourceDecorator(DataSource source) {
+    public Decorator(DataSource source) {
         this.wrappee = source;
     }
 
@@ -52,7 +52,7 @@ abstract class DataSourceDecorator implements DataSource {
 // ==========================================
 // 3. Concrete Decorators
 // ==========================================
-class EncryptionDecorator extends DataSourceDecorator {
+class EncryptionDecorator extends Decorator {
     public EncryptionDecorator(DataSource source) { super(source); }
 
     @Override
@@ -70,7 +70,7 @@ class EncryptionDecorator extends DataSourceDecorator {
     }
 }
 
-class CompressionDecorator extends DataSourceDecorator {
+class CompressionDecorator extends Decorator {
     public CompressionDecorator(DataSource source) { super(source); }
 
     @Override
@@ -88,7 +88,7 @@ class CompressionDecorator extends DataSourceDecorator {
     }
 }
 
-class LoggingDecorator extends DataSourceDecorator {
+class LoggingDecorator extends Decorator {
     public LoggingDecorator(DataSource source) { super(source); }
 
     @Override
