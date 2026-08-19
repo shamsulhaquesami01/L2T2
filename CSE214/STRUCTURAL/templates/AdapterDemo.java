@@ -1,81 +1,87 @@
 package CSE214.STRUCTURAL.templates;
-// ==========================================
+
 // 1. Target Interface & Concrete Target
-// ==========================================
-interface PaymentProcessor {
-    void processPayment(double amountInUSD);
+//the thing client uses; if its the legacy then the new class should be
+//adaptee; if its new interface then the legacy class will be adaptee
+
+interface ModernSystem {
+    void newmethod(double amountInUSD);
 }
 
-class StandardUsdProcessor implements PaymentProcessor {
+class ModernSystemConcrete implements ModernSystem {
     @Override
-    public void processPayment(double amountInUSD) {
+    public void newmethod(double amountInUSD) {
         System.out.println("Processing standard USD payment of $" + amountInUSD);
     }
 }
 
-// ==========================================
+
 // 2. Adaptee Interface & Concrete Adaptees
-// ==========================================
-interface ForeignPaymentGateway {
-    void executeForeignTransaction(double amount, String currency);
+//adaptee can be a direct class or an abstraction; doesnt matter; it will
+//stay as a object inside adapter
+
+interface Legacysystem {
+    void oldmethod(double amount, String currency);
 }
 
-class EuroGateway implements ForeignPaymentGateway {
+class LegacyConcrete implements Legacysystem {
     @Override
-    public void executeForeignTransaction(double amount, String currency) {
-        System.out.println("EuroGateway routing " + amount + " " + currency + " through European banking network.");
+    public void oldmethod(double amount, String currency) {
+        System.out.println("LegacyConcrete  " + amount + " " + currency + " through European banking network.");
     }
 }
 
-class YenGateway implements ForeignPaymentGateway {
+class LegacyConcrete2 implements Legacysystem {
     @Override
-    public void executeForeignTransaction(double amount, String currency) {
-        System.out.println("YenGateway routing " + amount + " " + currency + " through Asian banking network.");
+    public void oldmethod(double amount, String currency) {
+        System.out.println("LegacyConcrete2  " + amount + " " + currency + " through Asian banking network.");
     }
 }
 
-// ==========================================
+
 // 3. The Adapter
-// ==========================================
-class UniversalPaymentAdapter implements PaymentProcessor {
-    private ForeignPaymentGateway foreignGateway;
-    private String targetCurrency;
-    private double conversionRate;
+// here legacy system is adapted; can be reverse
 
-    public UniversalPaymentAdapter(ForeignPaymentGateway gateway, String currency, double rate) {
-        this.foreignGateway = gateway;
+class LegacytoModernAdapter implements ModernSystem {
+    private Legacysystem old;
+    private String targetCurrency;
+
+    public LegacytoModernAdapter(Legacysystem gateway, String currency) {
+        this.old = gateway;
         this.targetCurrency = currency;
-        this.conversionRate = rate;
     }
 
     @Override
-    public void processPayment(double amountInUSD) {
+    public void newmethod(double amountInUSD) {
         // Translate the data
-        double convertedAmount = amountInUSD * conversionRate;
+        double convertedAmount = helper(amountInUSD);
         System.out.println("Adapter: Converting $" + amountInUSD + " to " + convertedAmount + " " + targetCurrency);
         
         // Delegate to the wrapped adaptee
-        foreignGateway.executeForeignTransaction(convertedAmount, targetCurrency);
+        old.oldmethod(convertedAmount, targetCurrency);
+    }
+    private double helper(double amount){
+        //do something
+        return amount;
     }
 }
 
-// ==========================================
 // 4. Main / Client
-// ==========================================
+
 public class AdapterDemo {
     public static void main(String[] args) {
         System.out.println("--- Native Target ---");
-        PaymentProcessor nativeProcessor = new StandardUsdProcessor();
-        nativeProcessor.processPayment(100.0);
+        ModernSystem nativeProcessor = new ModernSystemConcrete();
+        nativeProcessor.newmethod(100.0);
 
         System.out.println("\n--- Adapted Euro Target ---");
-        ForeignPaymentGateway euroNode = new EuroGateway();
-        PaymentProcessor euroAdapter = new UniversalPaymentAdapter(euroNode, "EUR", 0.92);
-        euroAdapter.processPayment(100.0);
+        Legacysystem euroNode = new LegacyConcrete();
+        ModernSystem euroAdapter = new LegacytoModernAdapter(euroNode, "EUR");
+        euroAdapter.newmethod(100.0);
 
         System.out.println("\n--- Adapted Yen Target ---");
-        ForeignPaymentGateway yenNode = new YenGateway();
-        PaymentProcessor yenAdapter = new UniversalPaymentAdapter(yenNode, "JPY", 150.50);
-        yenAdapter.processPayment(100.0);
+        Legacysystem yenNode = new LegacyConcrete2();
+        ModernSystem yenAdapter = new LegacytoModernAdapter(yenNode, "JPY");
+        yenAdapter.newmethod(100.0);
     }
 }

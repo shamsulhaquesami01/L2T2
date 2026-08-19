@@ -1,93 +1,112 @@
 package CSE214.STRUCTURAL.templates;
 
-abstract class Beverage {
-    String description = "Unknown Beverage";
+interface BaseProduct {
+    void showDetails(int indentLevel);
 
-    public String getDescription() {
-        return description;
-    }
-
-    public abstract double cost();
+    double getPrice();
 }
 
-class Espresso extends Beverage {
-    public Espresso() {
-        // Sets the description inherited from Beverage
-        description = "Espresso";
+class BaseProduct1 implements BaseProduct {
+    private String name;
+    private double price;
+
+    public BaseProduct1(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
-    public double cost() {
-        // Returns the base cost without worrying about condiments
-        return 1.99;
-    }
-}
-
-class DarkRoast extends Beverage {
-    public DarkRoast() {
-        description = "Dark Roast Coffee";
+    @Override
+    public void showDetails(int indentLevel) {
+        System.out.println(" ".repeat(indentLevel) + "- BaseProduct1: " + name);
     }
 
-    public double cost() {
-        return 0.99;
+    @Override
+    public double getPrice() {
+        return this.price;
     }
 }
 
-abstract class CondimentDecorator extends Beverage {
-    public abstract String getDescription();
-}
+class BaseProduct2 implements BaseProduct {
+    private String name;
+    private double price;
 
-class Mocha extends CondimentDecorator {
-    // 1. An instance variable to hold the beverage we are wrapping
-    Beverage beverage;
-
-    // 2. Pass the beverage we are wrapping to the constructor
-    public Mocha(Beverage beverage) {
-        this.beverage = beverage;
+    public BaseProduct2(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
-    public String getDescription() {
-        // Delegate to the wrapped object, then append this decorator's detail
-        return beverage.getDescription() + ", Mocha";
+    @Override
+    public void showDetails(int indentLevel) {
+        System.out.println(" ".repeat(indentLevel) + "- BaseProduct2: " + name);
     }
 
-    public double cost() {
-        // Add the cost of the Mocha (.20) to the cost of the wrapped beverage
-        return .20 + beverage.cost();
+    @Override
+    public double getPrice() {
+        return this.price;
     }
 }
 
-class Whip extends CondimentDecorator {
-    Beverage beverage;
+// FIX: field/parameter renamed from "BaseProduct" (same as the type name)
+// to "wrapped". The old version compiled fine -- Java allows a field/param
+// to share a name with a type, since types and variables live in separate
+// namespaces -- but it's a real readability risk when you're renaming fast
+// under exam pressure. Every other template uses a plain name like
+// `wrapped`/`component` for exactly this reason.
+abstract class BaseDecorator implements BaseProduct {
+    protected BaseProduct wrapped;
 
-    public Whip(Beverage beverage) {
-        this.beverage = beverage;
+    public BaseDecorator(BaseProduct wrapped) {
+        this.wrapped = wrapped;
+    }
+}
+
+class Mocha extends BaseDecorator {
+    public Mocha(BaseProduct wrapped) {
+        super(wrapped);
     }
 
-    public String getDescription() {
-        return beverage.getDescription() + ", Whip";
+    @Override
+    public void showDetails(int indentLevel) {
+        wrapped.showDetails(indentLevel);
+        System.out.println(" ".repeat(indentLevel) + "  + Mocha");   // FIX: now respects indentLevel
     }
 
-    public double cost() {
-        return .10 + beverage.cost();
+    @Override
+    public double getPrice() {
+        return .20 + wrapped.getPrice();
+    }
+}
+
+class Whip extends BaseDecorator {
+    public Whip(BaseProduct wrapped) {
+        super(wrapped);
+    }
+
+    @Override
+    public void showDetails(int indentLevel) {
+        wrapped.showDetails(indentLevel);
+        System.out.println(" ".repeat(indentLevel) + "  + Whip");
+    }
+
+    @Override
+    public double getPrice() {
+        return .10 + wrapped.getPrice();
     }
 }
 
 public class DecoratorPatternDemo {
-    public static void main(String args[]) {
-        // Order up an espresso, no condiments
-        Beverage beverage = new Espresso();
-        System.out.println(beverage.getDescription() + " $" + beverage.cost());
+    public static void main(String[] args) {
+        BaseProduct espresso = new BaseProduct1("Espresso", 100);
+        espresso.showDetails(1);
+        System.out.printf("$%.2f%n", espresso.getPrice());
 
-        // Make a DarkRoast object
-        Beverage beverage2 = new DarkRoast();
-        // Wrap it with a Mocha
-        beverage2 = new Mocha(beverage2);
-        // Wrap it in a second Mocha (Handles the double quantity issue seamlessly!)
-        beverage2 = new Mocha(beverage2);
-        // Wrap it in a Whip
-        beverage2 = new Whip(beverage2);
-
-        System.out.println(beverage2.getDescription() + " $" + beverage2.cost());
-        // Prints: Dark Roast Coffee, Mocha, Mocha, Whip $1.49
+        BaseProduct darkRoast = new BaseProduct2("DarkRoast", 200);
+        darkRoast = new Mocha(darkRoast);
+        darkRoast = new Mocha(darkRoast);
+        darkRoast = new Whip(darkRoast);
+        darkRoast.showDetails(1);
+        System.out.printf("$%.2f%n", darkRoast.getPrice());
+        // 200 + .20 + .20 + .10 = $200.50
     }
 }
+

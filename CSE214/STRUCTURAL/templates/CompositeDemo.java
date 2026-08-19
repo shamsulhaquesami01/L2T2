@@ -1,118 +1,151 @@
 package CSE214.STRUCTURAL.templates;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // ==========================================
 // 1. Component
 // ==========================================
-interface OrgComponent {
+interface Component {
     void showDetails(int indentLevel);
-    int getEmployeeCount();
+
+    double getPrice();
 }
 
-// ==========================================
-// 2. Leaves (End Nodes)
-// ==========================================
-class Developer implements OrgComponent {
-    private String name;
-    public Developer(String name) { this.name = name; }
+// if composite can have only leaves
+interface prodcuts extends Component {
+    void showDetails(int indentLevel);
 
-    @Override
-    public void showDetails(int indentLevel) {
-        System.out.println(" ".repeat(indentLevel) + "- Developer: " + name);
+    double getPrice();
+}
+
+// make prodcuts implement this interface
+class Product1 implements Component {
+    private String name;
+    private double price;
+
+    public Product1(String name, double price) {
+        this.name = name;
+        this.price = price;
+
     }
 
     @Override
-    public int getEmployeeCount() { return 1; }
-}
-
-class Designer implements OrgComponent {
-    private String name;
-    public Designer(String name) { this.name = name; }
-
-    @Override
     public void showDetails(int indentLevel) {
-        System.out.println(" ".repeat(indentLevel) + "- Designer: " + name);
+        System.out.println(" ".repeat(indentLevel) + "- Product1: " + name);
     }
 
     @Override
-    public int getEmployeeCount() { return 1; }
+    public double getPrice() {
+        return this.price;
+    }
 }
 
-// ==========================================
+class Product2 implements Component {
+    private String name;
+    private double price;
+
+    public Product2(String name, double price) {
+        this.name = name;
+        this.price = price;
+
+    }
+
+    @Override
+    public void showDetails(int indentLevel) {
+        System.out.println(" ".repeat(indentLevel) + "- Product2: " + name);
+    }
+
+    @Override
+    public double getPrice() {
+        return this.price;
+    }
+}
+
 // 3. Composites (Container Nodes)
-// ==========================================
-abstract class CompositeNode implements OrgComponent {
+
+abstract class CompositeNode implements Component {
     protected String name;
-    protected List<OrgComponent> children = new ArrayList<>();
+    // write products interface here instead of the whole component
+    protected List<Component> children = new ArrayList<>();
 
-    public CompositeNode(String name) { this.name = name; }
+    public CompositeNode(String name) {
+        this.name = name;
+    }
 
-    public void add(OrgComponent component) { children.add(component); }
-    public void remove(OrgComponent component) { children.remove(component); }
+    public void add(Component component) {
+        children.add(component);
+    }
+
+    public void remove(Component component) {
+        children.remove(component);
+    }
 
     @Override
-    public int getEmployeeCount() {
-        int count = 0;
-        for (OrgComponent child : children) {
-            count += child.getEmployeeCount();
+    public double getPrice() {
+        double count = 0;
+        for (Component child : children) {
+            count += child.getPrice();
         }
         return count;
     }
 }
 
-class Department extends CompositeNode {
-    public Department(String name) { super(name); }
+class Composite1 extends CompositeNode {
+    public Composite1(String name) {
+        super(name);
+    }
 
     @Override
     public void showDetails(int indentLevel) {
-        System.out.println(" ".repeat(indentLevel) + "+ Department: " + name);
-        for (OrgComponent child : children) {
+        System.out.println(" ".repeat(indentLevel) + "+ Composite1: " + name);
+        for (Component child : children) {
             child.showDetails(indentLevel + 4);
         }
     }
 }
 
-class RegionalBranch extends CompositeNode {
-    public RegionalBranch(String name) { super(name); }
+class Composite2 extends CompositeNode {
+    public Composite2(String name) {
+        super(name);
+    }
 
     @Override
     public void showDetails(int indentLevel) {
         System.out.println(" ".repeat(indentLevel) + "[*] Regional Branch: " + name);
-        for (OrgComponent child : children) {
+        for (Component child : children) {
             child.showDetails(indentLevel + 4);
         }
     }
 }
 
-// ==========================================
 // 4. Main / Client
-// ==========================================
+
 public class CompositeDemo {
     public static void main(String[] args) {
         // Create Leaves
-        Developer dev1 = new Developer("Sami");
-        Developer dev2 = new Developer("Arif");
-        Designer des1 = new Designer("Kamal");
+        Product1 p1 = new Product1("Sami", 100);
+        Product1 p2 = new Product1("Arif", 60);
+        Product2 p3 = new Product2("Kamal", 70);
 
         // Create Tier 1 Composites
-        Department techDept = new Department("Technology");
-        techDept.add(dev1);
-        techDept.add(dev2);
+        Composite1 lst1 = new Composite1("Technology");
+        lst1.add(p1);
+        lst1.add(p2);
 
-        Department designDept = new Department("UI/UX Design");
-        designDept.add(des1);
+        Composite1 lst2 = new Composite1("UI/UX Design");
+        lst2.add(p3);
 
         // Create Tier 2 Composite
-        RegionalBranch dhakaBranch = new RegionalBranch("Dhaka HQ");
-        dhakaBranch.add(techDept);
-        dhakaBranch.add(designDept);
+        Composite2 lst3 = new Composite2("Dhaka HQ");
+        lst3.add(lst1);
+        lst3.add(lst2);
 
         // Execute uniform operations across the tree
         System.out.println("--- Organizational Chart ---");
-        dhakaBranch.showDetails(0);
+        lst3.showDetails(0);
 
-        System.out.println("\nTotal Employees in Dhaka HQ: " + dhakaBranch.getEmployeeCount());
-        System.out.println("Total Employees in Tech Dept only: " + techDept.getEmployeeCount());
+        System.out.println("\n Total cost:  " + lst3.getPrice());
+        System.out.println("Total cost " + lst1.getPrice());
     }
 }

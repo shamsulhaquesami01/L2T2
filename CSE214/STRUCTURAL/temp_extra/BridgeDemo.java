@@ -1,4 +1,4 @@
-package CSE214.STRUCTURAL.templates;
+package CSE214.STRUCTURAL.temp_extra;
 
 // ==========================================
 // 1. Implementation (Platform Layer)

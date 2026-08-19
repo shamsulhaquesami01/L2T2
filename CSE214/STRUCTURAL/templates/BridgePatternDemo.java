@@ -1,18 +1,13 @@
 package CSE214.STRUCTURAL.templates;
 
-// ==========================================
 // 1. The Implementation (Platform Layer)
-// ==========================================
-// This interface declares the common operations for all concrete implementations.
-// It handles the low-level work that the abstraction will delegate to.
  interface Color {
     String fill(); 
 }
 
-// ==========================================
 // 2. Concrete Implementations
-// ==========================================
-// These classes contain the specific, platform-style code for the different variations.
+
+
  class Red implements Color {
     @Override
     public String fill() {
@@ -27,10 +22,7 @@ package CSE214.STRUCTURAL.templates;
     }
 }
 
-// ==========================================
 // 3. The Abstraction (Control Layer)
-// ==========================================
-// This provides the high-level control logic and relies on the implementation object.
  abstract class Shape {
     // THIS IS THE BRIDGE: 
     // Instead of inheriting color, the Shape holds a reference (composition) to the Color interface.
@@ -45,10 +37,8 @@ package CSE214.STRUCTURAL.templates;
     public abstract void draw(); 
 }
 
-// ==========================================
 // 4. Refined Abstractions
-// ==========================================
-// These provide specific variants of the control logic.
+
  class Circle extends Shape {
     
     public Circle(Color color) {
@@ -74,9 +64,9 @@ package CSE214.STRUCTURAL.templates;
     }
 }
 
-// ==========================================
+
 // 5. The Client Code
-// ==========================================
+
 public class BridgePatternDemo {
     public static void main(String[] args) {
         // The client is responsible for linking the abstraction with the concrete implementation.
