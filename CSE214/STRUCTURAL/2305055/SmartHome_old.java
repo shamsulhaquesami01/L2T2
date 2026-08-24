@@ -42,6 +42,7 @@ interface SmartDevice {
     void activate();
 
     void deactivate();
+    
 
     double getPowerUsage(); // watts; 0 when inactive
 
