@@ -35,34 +35,50 @@ abstract class CaffeineBeverage {
         boilWater();
         brew();
         pourInCup();
-        if (customerWantsCondiments()) {   // hook controls an optional step
+        if (customerWantsCondiments()) { // hook controls an optional step
             addCondiments();
         }
     }
 
     // steps identical for every subclass
-    void boilWater() { System.out.println("Boiling water"); }
-    void pourInCup() { System.out.println("Pouring into cup"); }
+    private void boilWater() {
+        System.out.println("Boiling water");
+    }
+
+    private void pourInCup() {
+        System.out.println("Pouring into cup");
+    }
 
     // steps that MUST be supplied by each subclass
-    abstract void brew();
-    abstract void addCondiments();
+    protected abstract void brew();
+
+    protected abstract void addCondiments();
 
     // HOOK: default behaviour, subclasses may override it if they need to
-    boolean customerWantsCondiments() {
+    private boolean customerWantsCondiments() {
         return true;
     }
 }
 
 // ===== Concrete classes: each overrides only the steps that differ =====
 class Tea extends CaffeineBeverage {
-    void brew()          { System.out.println("Steeping the tea"); }
-    void addCondiments() { System.out.println("Adding lemon"); }
+    void brew() {
+        System.out.println("Steeping the tea");
+    }
+
+    void addCondiments() {
+        System.out.println("Adding lemon");
+    }
 }
 
 class Coffee extends CaffeineBeverage {
-    void brew()          { System.out.println("Dripping coffee through filter"); }
-    void addCondiments() { System.out.println("Adding sugar and milk"); }
+    void brew() {
+        System.out.println("Dripping coffee through filter");
+    }
+
+    void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
 
     // this subclass overrides the hook to actually ask the user
     @Override
@@ -75,8 +91,13 @@ class Coffee extends CaffeineBeverage {
 }
 
 class HotChocolate extends CaffeineBeverage {
-    void brew()          { System.out.println("Mixing in the cocoa powder"); }
-    void addCondiments() { System.out.println("Adding whipped cream and marshmallows"); }
+    void brew() {
+        System.out.println("Mixing in the cocoa powder");
+    }
+
+    void addCondiments() {
+        System.out.println("Adding whipped cream and marshmallows");
+    }
 
     // a second hook overridden differently — shows the skeleton scales
     @Override
