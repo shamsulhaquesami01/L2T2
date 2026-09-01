@@ -7,9 +7,9 @@ interface DataSource {
     String readData();
 }
 
-class FileDataSource implements DataSource {
+class FileDataSource implements DataSource{
     private String name;
-    private String dataBuffer = ""; // Simulating a file
+    private String dataBuffer = ""; // Simulating a ============== file
 
     public FileDataSource(String name) {
         this.name = name;
@@ -99,9 +99,9 @@ class LoggingDecorator extends Decorator {
     }
 }
 
-// ==========================================
+//==========================================
 // 4. Main / Client
-// ==========================================
+//==========================================
 public class DecoratorDemo {
     public static void main(String[] args) {
         String salaryRecords = "SalaryData: 50000";
