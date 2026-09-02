@@ -48,12 +48,12 @@ abstract class CaffeineBeverage {
     private void pourInCup() {
         System.out.println("Pouring into cup");
     }
-
+    
     // steps that MUST be supplied by each subclass
     protected abstract void brew();
-
+    
     protected abstract void addCondiments();
-
+    
     // HOOK: default behaviour, subclasses may override it if they need to
      boolean customerWantsCondiments() {
         return true;
@@ -119,6 +119,7 @@ public class TemplateMethodPatternTemplate {
         CaffeineBeverage hotChocolate = new HotChocolate();
         System.out.println("--- Making hot chocolate ---");
         hotChocolate.prepareRecipe();
+        
 
         System.out.println();
 
