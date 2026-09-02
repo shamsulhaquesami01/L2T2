@@ -123,6 +123,7 @@ class sjf implements policy {
     public void addTask(task t){
         lst.add(t);
     }
+    
     public void executeNextTask(){
         int ispriorty=0;
         for(task t:lst){

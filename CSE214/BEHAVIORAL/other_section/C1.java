@@ -1,8 +1,4 @@
 package other_section;
-
-import java.util.Scanner;
-
-// ===== Abstract class holding the template method =====
 abstract class Hospital {
     private static int count = 0;
 
@@ -39,13 +35,13 @@ abstract class Hospital {
 class GeneralDept extends Hospital {
 
     @Override
-    void assessment() {
+    public void assessment() {
         System.out.println("Doctor performs normal diagnosis");
 
     }
 
     @Override
-    void treatment() {
+    public void treatment() {
         System.out.println("Prescribe standard medicine");
 
     }
@@ -54,27 +50,28 @@ class GeneralDept extends Hospital {
 
 class Pediatrics extends Hospital {
     @Override
-    void assessment() {
+    public void assessment() {
         System.out.println("Doctor checks symptoms by ensuring child comfort leve");
 
     }
 
     @Override
-    void treatment() {
+    public void treatment() {
         System.out.println("Give child-safe medicine, friendly reassurance message");
 
     }
+    
 }
 
 class Emergency extends Hospital {
     @Override
-    void assessment() {
+    public void assessment() {
         System.out.println("Quick triage check (urgent/non-urgent)");
 
     }
 
     @Override
-    void treatment() {
+    public void treatment() {
         System.out.println("Immediate emergency procedure");
 
     }

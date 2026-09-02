@@ -55,28 +55,28 @@ abstract class CaffeineBeverage {
     protected abstract void addCondiments();
 
     // HOOK: default behaviour, subclasses may override it if they need to
-    private boolean customerWantsCondiments() {
+     boolean customerWantsCondiments() {
         return true;
     }
 }
 
 // ===== Concrete classes: each overrides only the steps that differ =====
 class Tea extends CaffeineBeverage {
-    void brew() {
+    public void brew() {
         System.out.println("Steeping the tea");
     }
 
-    void addCondiments() {
+    public void addCondiments() {
         System.out.println("Adding lemon");
     }
 }
 
 class Coffee extends CaffeineBeverage {
-    void brew() {
+    public void brew() {
         System.out.println("Dripping coffee through filter");
     }
 
-    void addCondiments() {
+    public void addCondiments() {
         System.out.println("Adding sugar and milk");
     }
 
@@ -91,11 +91,11 @@ class Coffee extends CaffeineBeverage {
 }
 
 class HotChocolate extends CaffeineBeverage {
-    void brew() {
+    public void brew() {
         System.out.println("Mixing in the cocoa powder");
     }
 
-    void addCondiments() {
+   public  void addCondiments() {
         System.out.println("Adding whipped cream and marshmallows");
     }
 

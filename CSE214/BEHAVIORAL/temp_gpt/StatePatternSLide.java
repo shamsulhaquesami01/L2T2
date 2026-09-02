@@ -166,7 +166,7 @@ class WinnerState implements State {
 }
 
 // ===== Demo =====
-public class StatePatternTemplate {
+public class StatePatternSLide {
     public static void main(String[] args) {
         GumballMachine machine = new GumballMachine(5);
 
