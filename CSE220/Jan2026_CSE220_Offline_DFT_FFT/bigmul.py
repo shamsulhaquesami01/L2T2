@@ -63,10 +63,12 @@ def multiply_transform(a, b, engine):
     a = np.asarray(a, dtype=np.int64).reshape(-1)
     b = np.asarray(b, dtype=np.int64).reshape(-1)
     needed = a.size + b.size - 1
-    if engine.name == "fft":
-        N = next_power_of_two(needed)
-    else:
+
+    if engine.name == "arbitrary":
         N = needed
+    else:
+        N = next_power_of_two(needed)
+        
     ap = np.zeros(N, dtype=np.complex128)
     bp = np.zeros(N, dtype=np.complex128)
     ap[:a.size] = a
