@@ -1,0 +1,39 @@
+name: CSE220 bonus verification
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy matplotlib pillow
+      - name: Run FFT cross-checks and NTT bonus
+        working-directory: CSE220/Jan2026_CSE220_Offline_DFT_FFT
+        run: |
+          python3 bigmul.py inputs/1.txt --engine fft --out-dir outputs/bonus/fft_crosscheck/1
+          python3 bigmul.py inputs/2.txt --engine fft --out-dir outputs/bonus/fft_crosscheck/2
+          cmp outputs/bonus/fft_crosscheck/1/product.txt outputs/task_a/1/product.txt
+          cmp outputs/bonus/fft_crosscheck/2/product.txt outputs/task_a/2/product.txt
+          python3 bigmul.py inputs/4.txt --engine ntt --out-dir outputs/bonus/task_a_ntt
+          cmp outputs/bonus/task_a_ntt/product.txt outputs/task_a/4/product.txt
+          printf 'input 1: FFT = DFT = MATCH\ninput 2: FFT = DFT = MATCH\ninput 4: NTT = floating-point FFT = MATCH\n' > outputs/bonus/verification.txt
+      - name: Commit generated evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CSE220/Jan2026_CSE220_Offline_DFT_FFT/outputs/bonus
+          git diff --cached --quiet && exit 0
+          git commit -m "Generate bonus verification outputs [skip ci]"
+          git push
