@@ -74,7 +74,6 @@ def multiply_transform(a, b, engine):
         N = needed
     else:
         N = next_power_of_two(needed)
-
     ap = np.zeros(N, dtype=np.complex128)
     bp = np.zeros(N, dtype=np.complex128)
     ap[:a.size] = a
