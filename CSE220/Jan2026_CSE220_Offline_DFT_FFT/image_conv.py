@@ -1,4 +1,4 @@
-"""Task B: image blurring through frequency-domain 2D convolution."""
+
 
 import argparse
 import os
@@ -55,7 +55,7 @@ def convolve_plane(plane, kernel, engine, circular=False):
         H, W = h, w
         kp = np.zeros((H, W), dtype=np.float64)
         kp[:kh, :kw] = kernel
-        # Put the kernel centre at the origin for circular convolution.
+        # kernel centre at the origin for circular convolution.
         kp = np.roll(kp, -(kh // 2), axis=0)
         kp = np.roll(kp, -(kw // 2), axis=1)
         return inverse_2d(transform_2d(plane, engine) * transform_2d(kp, engine), engine).real

@@ -1,4 +1,4 @@
-"""Task A: multiply huge decimal integers using transform-domain convolution."""
+
 
 import argparse
 import os
@@ -92,7 +92,7 @@ def _ntt(values, inverse=False):
     if N > NTT_MAX_LENGTH:
         raise ValueError("NTT length exceeds the 2^23 limit of modulus 998244353")
 
-    # Bit-reversal permutation.
+    # Bit-reversal 
     j = 0
     for i in range(1, N):
         bit = N >> 1
@@ -103,7 +103,7 @@ def _ntt(values, inverse=False):
         if i < j:
             a[i], a[j] = a[j], a[i]
 
-    # Cooley-Tukey butterflies in the finite field.
+    # Cooley-Tukey butterflies 
     m = 2
     while m <= N:
         stage_root = pow(NTT_ROOT, (NTT_MOD - 1) // m, NTT_MOD)
@@ -136,8 +136,7 @@ def multiply_ntt(a, b, base_digits=NTT_BASE_DIGITS):
     needed = a.size + b.size - 1
     N = next_power_of_two(needed)
 
-    # With base 10^2, inputs/4.txt has 10000 limbs per operand, so
-    # p_max <= 10000 * 99^2 = 98,010,000 < 998,244,353.
+
     base = 10 ** base_digits
     coefficient_bound = min(a.size, b.size) * (base - 1) ** 2
     if coefficient_bound >= NTT_MOD:

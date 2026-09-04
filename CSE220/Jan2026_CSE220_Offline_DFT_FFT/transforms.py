@@ -1,4 +1,4 @@
-"""Transform core for Task A and Task B."""
+
 
 import numpy as np
 
@@ -64,8 +64,7 @@ class FFTTransformer(DFTAnalyzer):
             if i < j:
                 a[i], a[j] = a[j], a[i]
 
-        # One twiddle table is computed for each stage, then reused by all
-        # butterflies in that stage.
+        
         m = 2
         sign = 1.0 if inverse else -1.0
         while m <= N:
