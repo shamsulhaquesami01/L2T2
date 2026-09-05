@@ -23,7 +23,7 @@ NTT_BASE_DIGITS = 2
 
 
 def to_limbs(text, base_digits=BASE_DIGITS):
-    """Convert a signed decimal string to (sign, little-endian base-10**base_digits limbs)."""
+    """Converting a signed decimal string to (sign, little-endian base-10**base_digits limbs)."""
     if base_digits < 1:
         raise ValueError("base_digits must be >= 1")
     text = str(text).strip()
@@ -41,7 +41,7 @@ def to_limbs(text, base_digits=BASE_DIGITS):
 
 
 def from_limbs(sign, limbs, base_digits=BASE_DIGITS):
-    """Propagate carries through convolution coefficients and return a decimal string."""
+    """Propagating carries through convolution coefficients and return a decimal string."""
     base = 10 ** base_digits
     vals = [int(v) for v in np.asarray(limbs, dtype=np.int64).reshape(-1)]
     if not vals:
@@ -65,7 +65,7 @@ def from_limbs(sign, limbs, base_digits=BASE_DIGITS):
 
 
 def multiply_transform(a, b, engine):
-    """Multiply limb polynomials by pointwise multiplication in the transform domain."""
+    """Multiplying limb polynomials by pointwise multiplication in the transform domain."""
     a = np.asarray(a, dtype=np.int64).reshape(-1)
     b = np.asarray(b, dtype=np.int64).reshape(-1)
     needed = a.size + b.size - 1

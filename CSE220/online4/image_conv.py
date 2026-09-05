@@ -12,7 +12,7 @@ from transforms import DFTAnalyzer, FFTTransformer, ArbitraryLengthFFT, next_pow
 
 
 def transform_2d(plane, engine):
-    """ 2D transform: every row, then every column."""
+    """Compute a separable 2D transform: every row, then every column."""
     x = np.asarray(plane, dtype=np.complex128)
     row_done = np.empty_like(x)
     for r in range(x.shape[0]):
@@ -24,7 +24,7 @@ def transform_2d(plane, engine):
 
 
 def inverse_2d(spectrum, engine):
-    """2D inverse transform."""
+    """Compute the separable 2D inverse transform."""
     x = np.asarray(spectrum, dtype=np.complex128)
     col_done = np.empty_like(x)
     for c in range(x.shape[1]):
@@ -78,7 +78,7 @@ def convolve_image(image, kernel, engine, circular=False):
 
 
 def convolve_plane_direct(plane, kernel):
-    """ four-loop spatial convolution with zero padding."""
+    """Literal four-loop spatial convolution with zero padding."""
     plane = np.asarray(plane, dtype=np.float64)
     kernel = np.asarray(kernel, dtype=np.float64)
     h, w = plane.shape
@@ -113,7 +113,7 @@ def _make_requested_kernel(name, param):
 
 
 def run_single(path, kernel_name, param, engine_name, out_dir, gray=False):
-    """Blurring one image, save all required figures, and verify against direct convolution."""
+    """Blur one image, save all required figures, and verify against direct convolution."""
     os.makedirs(out_dir, exist_ok=True)
     image = load_image(path, as_gray=gray)
     kernel = _make_requested_kernel(kernel_name, param)

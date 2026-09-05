@@ -19,7 +19,7 @@ class DFTAnalyzer:
     name = "dft"
 
     def transform(self, x):
-        """Compute X[k] = sum_n x[n] exp(-2j*pi*k*n/N)."""
+        """ X[k] = sum_n x[n] exp(-2j*pi*k*n/N)."""
         x = np.asarray(x, dtype=np.complex128).reshape(-1)
         N = x.size
         if N == 0:
@@ -29,7 +29,7 @@ class DFTAnalyzer:
         return W @ x
 
     def inverse(self, spectrum):
-        """Compute the inverse DFT, including the 1/N factor."""
+        """ the inverse DFT, including the 1/N factor."""
         X = np.asarray(spectrum, dtype=np.complex128).reshape(-1)
         N = X.size
         if N == 0:
@@ -89,7 +89,7 @@ class FFTTransformer(DFTAnalyzer):
 
 
 class ArbitraryLengthFFT(FFTTransformer):
-    """Bonus arbitrary-length O(N log N) FFT using Bluestein's algorithm."""
+    """ arbitrary-length O(N log N) FFT using Bluestein's algorithm."""
 
     name = "arbitrary"
 
