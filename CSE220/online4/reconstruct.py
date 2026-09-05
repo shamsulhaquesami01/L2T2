@@ -14,3 +14,4 @@ X = complete_real_spectrum(known, N)
 print(X)
 print(np.allclose(X[(-np.arange(N)) % N],
 np.conjugate(X)))
+
