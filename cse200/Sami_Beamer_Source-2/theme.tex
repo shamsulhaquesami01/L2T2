@@ -1,0 +1,144 @@
+% Visual system and reusable TikZ helpers.
+\usepackage{lmodern}
+% Lato's open, humanist forms soften the technical diagrams without becoming casual.
+% It is distributed with TeX Live, so the source stays portable to Overleaf.
+\usepackage[default]{lato}
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\editorial}{\itshape}
+\usepackage{amsmath,amssymb,tikz}
+\usetikzlibrary{arrows.meta,calc,shapes.geometric,decorations.pathreplacing,decorations.pathmorphing}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\setbeamertemplate{frametitle}{}
+\setbeamersize{text margin left=0pt,text margin right=0pt}
+\definecolor{charcoal}{HTML}{17201D}
+\definecolor{ivory}{HTML}{F4F0E7}
+\definecolor{forest}{HTML}{245842}
+\definecolor{gold}{HTML}{D9B45E}
+\definecolor{goldink}{HTML}{88631D}
+\definecolor{sage}{HTML}{A8C1AE}
+\definecolor{muted}{HTML}{6B766D}
+\definecolor{rulegray}{HTML}{D5D9CE}
+\definecolor{softgreen}{HTML}{E4EADF}
+\definecolor{softgold}{HTML}{EEE1BF}
+\definecolor{stone}{HTML}{9DADA2}
+\definecolor{lime}{HTML}{A9CA38}
+\definecolor{coral}{HTML}{D67A62}
+\newcommand{\Dark}{\colorlet{bg}{charcoal}\colorlet{fg}{ivory}\colorlet{accent}{gold}\colorlet{subtle}{sage}\colorlet{linecol}{forest}}
+\newcommand{\Light}{\colorlet{bg}{ivory}\colorlet{fg}{charcoal}\colorlet{accent}{forest}\colorlet{subtle}{muted}\colorlet{linecol}{rulegray}}
+\newenvironment{canvas}{\begin{tikzpicture}[remember picture,overlay]\begin{scope}[shift={(current page.north west)},x=1cm,y=-1cm]\fill[bg] (0,0) rectangle (16,9);}{\end{scope}\end{tikzpicture}}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\newcommand{\T}[6]{\pgfmathsetmacro{\leading}{#4*1.15}\node[anchor=north west,inner sep=0pt,align=left,text width=#3cm,text=#5,font=\fontsize{#4}{\leading}\selectfont] at (#1,#2) {#6};}
+\newcommand{\C}[5]{\node[anchor=center,inner sep=0pt,text=#4,font=\fontsize{#3}{#3}\selectfont] at (#1,#2) {#5};}
+\newcommand{\Header}[2]{%
+  \T{.8}{.52}{8.5}{7}{accent}{\textbf{#1}}%
+  \T{12.2}{.56}{2.95}{5.6}{subtle}{\textbf{SAMI}\quad /\quad SPEAKER 1}%
+  \T{.8}{1.03}{14.4}{22}{fg}{\textbf{#2}}%
+}
+\newcommand{\Tracker}{%
+  \pgfmathsetmacro{\progressx}{.8+14.4*(\insertframenumber/9)}%
+  \draw[linecol,line width=.55pt] (.8,8.36)--(15.2,8.36);%
+  \draw[lime,line width=1.55pt,line cap=round] (.8,8.36)--(\progressx,8.36);%
+  \fill[lime] (\progressx,8.36) circle (.055);%
+}
+\newcommand{\Footer}[1]{%
+  \Tracker%
+  \T{.8}{8.54}{12.9}{5.5}{subtle}{#1}%
+  \T{12.22}{8.52}{2.02}{6}{subtle}{\textbf{Sami -- 2305055}}%
+  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,09}%
+}
+\newcommand{\BareFooter}{%
+  \Tracker%
+  \T{12.22}{8.52}{2.02}{6}{subtle}{\textbf{Sami -- 2305055}}%
+  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,09}%
+}
+\newcommand{\Play}[3]{\fill[#3] (#1,#2) circle (.20);\fill[ivory] ({#1-.055},{#2-.09})--({#1-.055},{#2+.09})--({#1+.105},#2)--cycle;}
+% Reusable hand-drawn TikZ characters and content thumbnails.
+\tikzset{
+  doodle/.style={draw=charcoal,line width=.9pt,line cap=round,line join=round},
+  doodlelight/.style={draw=ivory,line width=.9pt,line cap=round,line join=round},
+  softcard/.style={rounded corners=2.7mm,line width=.55pt}
+}
+\newcommand{\BobDoodle}[3]{%
+  \begin{scope}[shift={(#1,#2)},scale=#3]
+    \fill[softgold,rounded corners=10pt] (-2.55,-2.75) rectangle (2.55,2.7);
+    \fill[gold!28] (-1.92,-1.55) circle (.33);
+    \fill[forest!18] (1.78,1.78) circle (.52);
+    \draw[forest!35,line width=.55pt] (-2.18,1.88) arc[start angle=205,end angle=330,radius=.65];
+    % seated body
+    \fill[forest,rounded corners=7pt] (-.76,.38) rectangle (.78,1.9);
+    \draw[doodle] (-.63,1.78) .. controls (-1.15,2.05) and (-1.34,2.36) .. (-1.54,2.54);
+    \draw[doodle] (.63,1.78) .. controls (1.15,2.05) and (1.34,2.36) .. (1.54,2.54);
+    \draw[doodle] (-.38,.45) .. controls (-.95,-.02) and (-1.15,-.23) .. (-1.03,-.66);
+    \draw[doodle] (.38,.45) .. controls (.95,-.02) and (1.15,-.23) .. (1.03,-.66);
+    % head + hair
+    \fill[ivory] (0,-.83) circle (.83);
+    \draw[doodle] (0,-.83) circle (.83);
+    \fill[charcoal] (-.77,-1.01) .. controls (-.66,-1.82) and (.55,-1.88) .. (.8,-1.07)
+      .. controls (.45,-1.38) and (.12,-1.18) .. (-.08,-1.43)
+      .. controls (-.38,-1.19) and (-.55,-1.34) .. cycle;
+    \draw[doodle] (-.42,-.79) arc[start angle=200,end angle=340,radius=.19];
+    \draw[doodle] (.07,-.79) arc[start angle=200,end angle=340,radius=.19];
+    \draw[doodle] (-.24,-.48) .. controls (0,-.28) and (.23,-.31) .. (.36,-.51);
+    \fill[coral!45] (-.47,-.45) circle (.085);\fill[coral!45] (.53,-.45) circle (.085);
+    % phone + hands
+    \fill[charcoal,rounded corners=2pt] (-.43,.08) rectangle (.43,.88);
+    \fill[lime] (-.31,.19) rectangle (.31,.67);
+    \draw[ivory,line width=.45pt] (-.19,.42)--(.19,.42);
+    \fill[ivory] (0,.77) circle (.035);
+    \fill[ivory] (-.45,.68) circle (.13);\fill[ivory] (.45,.68) circle (.13);
+    \draw[gold,line width=.9pt,line cap=round] (-1.88,-1.62)--(-1.62,-1.45) (-1.74,-1.79)--(-1.52,-1.96);
+  \end{scope}%
+}
+\newcommand{\BloopersThumb}[4]{%
+  \begin{scope}[shift={(#1,#2)},xscale=#3/3.2,yscale=#4/1.85]
+    \fill[softgold,rounded corners=5pt] (0,0) rectangle (3.2,1.85);
+    \fill[forest!16,rounded corners=3pt] (.25,.24) rectangle (2.95,1.61);
+    \draw[doodle] (.7,1.11) circle (.29); \draw[doodle] (1.55,1.11) circle (.29);
+    \draw[doodle] (.55,1.57) arc[start angle=205,end angle=335,radius=.38];
+    \draw[doodle] (1.4,1.57) arc[start angle=205,end angle=335,radius=.38];
+    \draw[doodle] (.57,1.11) arc[start angle=200,end angle=340,radius=.12];
+    \draw[doodle] (1.42,1.11) arc[start angle=200,end angle=340,radius=.12];
+    \fill[charcoal,rounded corners=1pt] (1.94,.68) rectangle (2.73,1.42);
+    \fill[ivory] (1.94,.5)--(2.73,.68)--(1.94,.68)--cycle;
+    \draw[ivory,line width=.7pt] (2.05,.81)--(2.62,.81) (2.05,1.02)--(2.62,1.02);
+    \draw[gold,line width=.65pt] (.31,.39)--(.13,.22) (2.8,.42)--(3.04,.21);
+  \end{scope}%
+}
+\newcommand{\SitcomThumb}[4]{%
+  \begin{scope}[shift={(#1,#2)},xscale=#3/3.2,yscale=#4/1.85]
+    \fill[softgreen,rounded corners=5pt] (0,0) rectangle (3.2,1.85);
+    \fill[forest!70,rounded corners=4pt] (.42,1.13) rectangle (2.78,1.58);
+    \fill[forest!70,rounded corners=4pt] (.28,1.36) rectangle (2.92,1.7);
+    \foreach \x in {.89,1.6,2.31}{\fill[ivory] (\x,.78) circle (.28);\draw[doodle] (\x,.78) circle (.28);\draw[doodle] ({\x-.12},.79) arc[start angle=205,end angle=335,radius=.12];}
+    \draw[doodle] (.58,1.12)--(.77,.95) (1.31,1.12)--(1.5,.95) (2.02,1.12)--(2.21,.95);
+    \draw[goldink,line width=.6pt] (.3,.27) arc[start angle=180,end angle=330,radius=.22] (2.67,.27) arc[start angle=180,end angle=330,radius=.22];
+  \end{scope}%
+}
+\newcommand{\ActionThumb}[4]{%
+  \begin{scope}[shift={(#1,#2)},xscale=#3/3.2,yscale=#4/1.85]
+    \fill[charcoal,rounded corners=5pt] (0,0) rectangle (3.2,1.85);
+    \draw[sage!55,line width=.55pt] (.2,.42)--(1.0,.42) (.07,.7)--(.79,.7) (.35,.98)--(.92,.98);
+    \fill[forest,rounded corners=4pt] (1.0,.88) rectangle (2.88,1.42);
+    \fill[forest] (1.36,.88)--(1.72,.5)--(2.42,.5)--(2.68,.88)--cycle;
+    \fill[sage] (1.76,.58) rectangle (2.08,.83);\fill[sage] (2.14,.58) rectangle (2.38,.83);
+    \fill[gold] (1.42,1.43) circle (.22);\fill[gold] (2.53,1.43) circle (.22);
+    \fill[charcoal] (1.42,1.43) circle (.105);\fill[charcoal] (2.53,1.43) circle (.105);
+  \end{scope}%
+}
+\newcommand{\MicThumb}[4]{%
+  \begin{scope}[shift={(#1,#2)},xscale=#3/3.2,yscale=#4/1.85]
+    \fill[forest,rounded corners=5pt] (0,0) rectangle (3.2,1.85);
+    \fill[gold] (1.6,.55) circle (.22);\draw[gold,line width=1.15pt] (1.6,.76)--(1.6,1.43);
+    \draw[gold,line width=.75pt] (1.32,1.43)--(1.88,1.43);
+    \draw[sage,line width=.55pt] (1.13,.34) arc[start angle=180,end angle=260,radius=.3] (2.07,.34) arc[start angle=0,end angle=-80,radius=.3];
+  \end{scope}%
+}
+\newcommand{\Force}[1]{\only<#1>{\relax}}
+\title{Recommendation Algorithms: Bob's Next Video}
+\author{Sami}
+\date{}
+\hypersetup{pdftitle={Recommendation Algorithms | Sami | Speaker 1},pdfauthor={Sami},pdfsubject={Feedback, user-item matrix, and content-based filtering},pdfpagemode=FullScreen}

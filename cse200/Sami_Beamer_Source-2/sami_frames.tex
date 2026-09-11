@@ -1,0 +1,192 @@
+% Sami: nine frames, 24 overlay pages.
+
+% FRAME 1 — 1 page — 00:00–00:10
+\begin{frame}[plain,label=cover]
+\Dark
+\begin{canvas}
+\T{.82}{1.62}{8.1}{27}{ivory}{\textbf{Recommendation\\Algorithms}}
+\T{.87}{4.12}{7.1}{13}{sage}{How a feed turns small signals\\into a ranked guess.}
+\draw[gold,line width=1.1pt,line cap=round] (.88,5.43)--(1.73,5.43);
+\T{.87}{5.82}{2.3}{7}{gold}{\textbf{TEAM MEMBERS}}
+\T{.87}{6.28}{6.7}{10}{ivory}{2305052\quad /\quad 2305055\quad /\quad 2305033}
+% \T{.87}{7.10}{2.3}{7}{gold}{\textbf{INSTRUCTOR}}
+% \draw[sage,line width=.55pt] (2.62,7.38)--(7.38,7.38);
+% \T{2.62}{7.09}{4.76}{10}{ivory}{Sadia Sharmin Mam}
+% An original TikZ opening composition: one person, one signal, a ranked feed.
+\fill[forest!48,rounded corners=7mm] (9.03,.74) rectangle (15.18,7.82);
+\draw[gold!50,line width=.65pt] (9.55,1.31) circle (.17) (14.61,7.16) circle (.26);
+\BobDoodle{11.14}{4.30}{.72}
+\draw[-{Latex[length=2.6mm]},gold,line width=1.05pt] (12.82,3.84).. controls (13.47,3.24) and (13.38,2.52)..(14.02,2.17);
+\fill[charcoal,softcard] (13.17,1.35) rectangle (14.76,2.34);
+\C{13.46}{1.85}{10}{gold}{1}\fill[gold,rounded corners=1pt] (13.72,1.68) rectangle (14.51,1.85);
+\fill[gold!70,rounded corners=1pt] (13.72,1.98) rectangle (14.29,2.12);
+\draw[-{Latex[length=2.6mm]},gold,line width=1.05pt] (12.72,5.00).. controls (13.41,5.12) and (13.40,5.89)..(14.02,6.18);
+\fill[ivory,softcard] (13.17,5.83) rectangle (14.76,6.82);
+\C{13.46}{6.32}{10}{forest}{2}\fill[forest,rounded corners=1pt] (13.72,6.16) rectangle (14.51,6.33);
+\fill[sage,rounded corners=1pt] (13.72,6.45) rectangle (14.22,6.59);
+\T{9.46}{7.23}{4.6}{7}{sage}{\textbf{WATCH}\quad $\longrightarrow$\quad \textbf{LEARN}\quad $\longrightarrow$\quad \textbf{RANK}}
+\BareFooter
+\end{canvas}
+\end{frame}
+
+% FRAME 2 — 2 overlays — 00:10–00:25
+\begin{frame}[plain,label=bob]
+\Dark
+\begin{canvas}
+\T{.8}{.64}{7.2}{8}{gold}{\textbf{RECOMMENDATION ALGORITHMS}}
+\T{.8}{1.55}{7.6}{39}{ivory}{Your next\\\textit{favorite.}}
+\T{.85}{4.86}{6.7}{14}{sage}{A story about how a feed\\learns what to show you.}
+\only<2->{%
+  % The character and watched video enter together with the "Meet Bob" reveal.
+  \fill[forest!68] (8.35,0) rectangle (16,9);
+  \fill[forest!35] (8.35,0) -- (16,0) -- (16,9) -- (12.9,9) -- cycle;
+  \draw[gold!65,line width=.7pt] (9.02,1.0) circle (.16) (15.06,7.44) circle (.25);
+  \foreach \x/\y/\r in {8.82/7.08/.05,9.27/7.56/.03,14.72/1.15/.05,15.16/1.52/.025}{\fill[gold!80] (\x,\y) circle (\r);}
+  % Phone: a contained video card, aligned to the phone mock-up on the next slide.
+  \fill[charcoal,rounded corners=5mm] (10.42,.78) rectangle (15.12,7.62);
+  \fill[ivory,rounded corners=4mm] (10.58,1.00) rectangle (14.96,7.40);
+  \fill[charcoal,rounded corners=.7mm] (12.14,1.12) rectangle (13.40,1.24);
+  \T{10.92}{1.55}{3.55}{8}{charcoal}{\textbf{For Bob}\hfill Saturday, 9:12}
+  \BloopersThumb{10.92}{2.16}{3.70}{2.12}\Play{14.22}{3.19}{forest}
+  \T{10.92}{4.67}{3.75}{13}{charcoal}{\textbf{The funny video}}
+  \T{10.92}{5.20}{3.75}{9}{muted}{00:47\qquad Full watch}
+  \draw[rulegray,line width=2.1pt,line cap=round] (10.92,5.82)--(14.62,5.82);
+  \draw[lime,line width=2.1pt,line cap=round] (10.92,5.82)--(13.78,5.82);
+  \fill[lime] (13.78,5.82) circle (.075);
+  \T{10.92}{6.26}{3.7}{8}{forest}{A small signal for the feed.}
+  % Bob sits beside the phone; the arrow makes the relationship immediately readable.
+  \fill[softgold,rounded corners=3.5mm] (8.66,5.07) rectangle (10.87,7.77);
+  \T{8.90}{5.30}{1.75}{7}{forest}{\textbf{BOB}\quad /\quad SATURDAY}
+  \BobDoodle{9.77}{6.76}{.42}
+  \draw[-{Latex[length=2.5mm]},lime,line width=1.05pt] (10.80,6.31).. controls (11.12,6.31) and (11.01,6.03)..(10.76,5.93);
+  \draw[gold,line width=1pt] (.85,6.01)--(1.7,6.01);
+  \T{.85}{6.3}{6.6}{24}{ivory}{\textbf{Meet Bob.}}
+  \T{.85}{7.05}{6.6}{11}{sage}{Saturday morning. One funny video.}%
+}
+\BareFooter
+\end{canvas}
+\Force{2}
+\end{frame}
+
+% FRAME 3 — 3 overlays — 00:25–00:45
+\begin{frame}[plain,label=feed]
+\Light
+\begin{canvas}
+\Header{01 / THE STORY}{Sunday looks familiar.}
+\T{.8}{2.45}{6.2}{17}{fg}{One video yesterday.}
+\only<2->{\T{.8}{3.35}{6}{17}{fg}{A feed full of comedy.}}
+\only<3->{\T{.8}{5.09}{6.3}{29}{forest}{\editorial Coincidence?}\T{.8}{6.48}{6.2}{14}{fg}{Something is happening\\behind the screen.}}
+% A deliberately simplified video-feed mockup, not a platform screenshot.
+\fill[charcoal,rounded corners=5mm] (8.2,2.18) rectangle (14.62,8.04);
+\fill[ivory,rounded corners=3.8mm] (8.32,2.3) rectangle (14.5,7.92);
+\fill[charcoal,rounded corners=1mm] (10.69,2.39) rectangle (12.12,2.53);
+\T{8.75}{2.85}{5.5}{10}{charcoal}{\textbf{For Bob}\hfill Sunday, 9:00 AM}
+\BloopersThumb{8.75}{3.43}{2.07}{1.25}\Play{10.54}{4.42}{forest}
+\T{11.08}{3.61}{2.9}{12}{charcoal}{\textbf{Bloopers}}\T{11.08}{4.12}{2.9}{8}{muted}{On-set laughs}
+\only<2->{\SitcomThumb{8.75}{4.91}{2.07}{1.25}\Play{10.54}{5.9}{forest}\T{11.08}{5.12}{2.9}{12}{charcoal}{\textbf{Sitcom clips}}\T{11.08}{5.63}{2.9}{8}{muted}{Best moments}
+\MicThumb{8.75}{6.41}{2.07}{1.04}\T{11.08}{6.61}{2.9}{12}{charcoal}{\textbf{Stand-up}}\T{11.08}{7.1}{2.9}{8}{muted}{A few more laughs}}
+\Footer{Fictional story and feed. Watch history is one of several recommendation signals. [1]}
+\end{canvas}\Force{3}
+\end{frame}
+
+% FRAME 4 — 3 overlays — 00:45–01:02
+\begin{frame}[plain,label=backstage]
+\Dark
+\begin{canvas}
+\Header{02 / BEHIND THE SCREEN}{A ranked guess.}
+\T{.8}{2.25}{13.9}{13}{sage}{The system uses evidence to decide what Bob might enjoy next.}
+\fill[forest,rounded corners=3mm] (.85,3.52) rectangle (4.5,5.95);
+\T{1.13}{3.91}{3.1}{18}{ivory}{\textbf{Observe}}
+\T{1.13}{4.85}{3}{11}{sage}{Watches,\\ratings, skips}
+\only<2->{\draw[-{Latex[length=3mm]},gold,line width=1.1pt] (4.72,4.72)--(5.43,4.72);\draw[gold,line width=.8pt,rounded corners=3mm] (5.65,3.52) rectangle (9.64,5.95);\T{5.98}{3.91}{3.4}{18}{ivory}{\textbf{Learn}}\T{5.98}{4.85}{3.3}{11}{sage}{Build a profile.\\Score candidates.}}
+\only<3->{\draw[-{Latex[length=3mm]},gold,line width=1.1pt] (9.88,4.72)--(10.59,4.72);\T{11.05}{3.55}{3.9}{18}{gold}{\textbf{Rank}}\foreach \y/\n/\w in {4.51/1/2.95,5.03/2/2.25,5.55/3/1.48}{\C{11.13}{\y}{10}{sage}{\n}\fill[gold] (11.51,{\y-.12}) rectangle ({11.51+\w},{\y+.12});}\T{.85}{7.03}{14.2}{17}{ivory}{That is the job of a \textbf{recommendation system}.}}
+\Footer{Simplified recommendation pipeline. Longer bars represent higher model scores. [2]}
+\end{canvas}\Force{3}
+\end{frame}
+
+% FRAME 5 — 3 overlays — 01:02–01:26
+\begin{frame}[plain,label=feedback]
+\Light
+\begin{canvas}
+\Header{03 / FEEDBACK}{Bob tells us in two ways.}
+\draw[rulegray] (7.9,2.53)--(7.9,6.83);
+\T{.85}{2.57}{6.4}{9}{forest}{\textbf{EXPLICIT FEEDBACK}}
+\T{.85}{3.15}{6.3}{23}{fg}{\editorial What he says.}
+\foreach \x in {1.18,2.02,2.86,3.7,4.54}{\node[star,star points=5,star point ratio=2.25,fill=goldink,minimum size=.59cm,inner sep=0pt] at (\x,4.44) {};}
+\T{.85}{5.12}{6.4}{15}{fg}{Rate. Like. Dislike.}
+\T{.85}{5.92}{6.4}{11}{muted}{A direct expression of preference.}
+\only<2->{\T{8.67}{2.57}{6.2}{9}{forest}{\textbf{IMPLICIT FEEDBACK}}\T{8.67}{3.15}{6.2}{23}{fg}{\editorial What he does.}\Play{8.96}{4.45}{forest}\draw[rulegray,line width=3.5pt] (9.44,4.45)--(14.82,4.45);\draw[forest,line width=3.5pt] (9.44,4.45)--(13.9,4.45);\fill[forest] (13.9,4.45) circle (.10);\T{8.67}{5.12}{6.4}{15}{fg}{Watch. Replay. Skip.}\T{8.67}{5.92}{6.3}{11}{muted}{Behavior that may suggest interest.}}
+\only<3->{\fill[softgold,rounded corners=2.5mm] (.85,7.12) rectangle (15.15,7.91);\T{1.12}{7.35}{13.5}{13}{charcoal}{\textbf{A long watch is a clue, not proof that Bob liked it.}}}
+\Footer{Feedback categories; behavior is ambiguous and absence of an event does not establish dislike. [3]}
+\end{canvas}\Force{3}
+\end{frame}
+
+% FRAME 6 — 3 overlays — 01:26–01:48
+\begin{frame}[plain,label=matrix]
+\Light
+\begin{canvas}
+\Header{04 / THE USER--ITEM MATRIX}{A few ratings. Many unknowns.}
+\T{.85}{2.25}{14.2}{11}{muted}{Rows = people. Columns = videos. Entries = ratings.}
+% Column and row headers stay stable across all overlays.
+\foreach \x/\label in {3.6/Bloopers,5.45/{Sitcom 1},7.3/Action,9.15/Travel}{\C{\x}{3.27}{11}{fg}{\label}}
+\foreach \y/\name in {4.15/Bob,5.4/Asha,6.65/Leo}{\T{.85}{\y-.16}{1.5}{13}{fg}{\textbf{\name}}}
+\foreach \row in {0,1,2}{\foreach \col in {0,1,2,3}{\pgfmathsetmacro{\xx}{2.8+1.85*\col}\pgfmathsetmacro{\yy}{3.64+1.25*\row}\fill[softgreen,rounded corners=1.8mm] (\xx,\yy) rectangle ({\xx+1.6},{\yy+1.02});}}
+\only<1>{\C{3.6}{4.15}{21}{forest}{5}\draw[-{Latex[length=2mm]},forest,line width=1pt] (1.98,4.15)--(2.61,4.15);\T{11.1}{3.92}{3.85}{16}{forest}{Bob rated\\bloopers \textbf{5}.}}
+\only<2->{\foreach \x/\y/\v in {3.6/4.15/5,5.45/4.15/4,3.6/5.4/4,7.3/5.4/2,7.3/6.65/5}{\C{\x}{\y}{21}{forest}{\v}}\foreach \x/\y in {7.3/4.15,9.15/4.15,5.45/5.4,9.15/5.4,3.6/6.65,5.45/6.65,9.15/6.65}{\C{\x}{\y}{21}{muted}{?}}\T{11.1}{3.92}{3.85}{16}{fg}{Most ratings\\are missing.}}
+\only<3->{\draw[goldink,line width=1.5pt] (6.5,3.64) rectangle (8.1,4.66);\T{11.1}{5.74}{3.85}{18}{forest}{\textbf{Unknown}\\$\boldsymbol{\ne}$ disliked.}\T{.85}{7.58}{14.3}{13}{fg}{The challenge: score a video Bob has never rated.}}
+\Footer{Illustrative explicit ratings on a 1--5 scale. A question mark means no observed rating. [3]}
+\end{canvas}\Force{3}
+\end{frame}
+
+% FRAME 7 — 3 overlays — 01:48–02:15
+\begin{frame}[plain,label=features]
+\Dark
+\begin{canvas}
+\Header{05 / CONTENT-BASED FILTERING}{Describe videos. Learn Bob's taste.}
+\T{.85}{2.21}{13.9}{12}{sage}{Recommend videos whose features resemble what Bob already enjoys.}
+\T{.85}{3.04}{4.2}{8}{gold}{\textbf{VIDEOS BOB ENJOYS}}
+\BloopersThumb{.85}{3.57}{3.32}{2.38}\Play{3.82}{5.6}{forest}
+\T{.85}{6.18}{3.9}{13}{ivory}{Movie bloopers}
+\only<2->{\draw[-{Latex[length=2.8mm]},gold,line width=1.1pt] (4.38,4.73)--(5.14,4.73);\T{5.48}{3.04}{3.9}{8}{gold}{\textbf{ITEM FEATURES}}\T{5.48}{3.76}{3.5}{18}{ivory}{Comedy}\T{5.48}{4.38}{3.5}{11}{sage}{Genre, tone, topic,\\cast, duration\ldots}\draw[linecol] (5.48,5.58)--(8.7,5.58);\T{5.48}{5.94}{3.5}{11}{sage}{Describes the video.}}
+\only<3->{\draw[-{Latex[length=2.8mm]},gold,line width=1.1pt] (9.09,4.73)--(9.83,4.73);\fill[forest,rounded corners=3mm] (10.15,3.39) rectangle (15.15,6.96);\T{10.49}{3.76}{4.25}{8}{gold}{\textbf{BOB'S CONTENT PROFILE}}\T{10.49}{4.44}{4.25}{23}{ivory}{$\mathbf p=(3,\,1)$}\T{10.49}{5.44}{4.15}{10}{ivory}{Comedy: 3\quad Action: 1}\T{10.49}{6.08}{4.16}{10}{sage}{From his feedback\\and video features.}\T{.85}{7.51}{14.3}{13}{ivory}{A profile of \textbf{features}, built from a history of \textbf{feedback}.}}
+\Footer{Illustrative profile and feature strengths. Content-based filtering uses this user's history and item features. [4]}
+\end{canvas}\Force{3}
+\end{frame}
+
+% FRAME 8 — 4 overlays — 02:15–02:43
+\begin{frame}[plain,label=similarity]
+\Light
+\begin{canvas}
+\Header{06 / SIMILARITY}{The closer direction wins.}
+\T{.85}{2.2}{14}{11}{muted}{Compare Bob's profile with candidate video features using cosine similarity.}
+% Left: exact feature geometry. Axes use common linear scale .8 cm/unit.
+\draw[-{Latex[length=2.1mm]},muted,line width=.7pt] (1.44,6.9)--(6.1,6.9);
+\draw[-{Latex[length=2.1mm]},muted,line width=.7pt] (1.44,6.9)--(1.44,3.07);
+\T{4.74}{7.16}{2.2}{10}{muted}{Comedy}
+\T{.85}{2.76}{2}{10}{muted}{Action}
+\draw[-{Latex[length=2.8mm]},forest,line width=1.6pt] (1.44,6.9)--(3.84,6.1);
+\T{3.53}{5.46}{3}{12}{forest}{\textbf{Bob $(3,1)$}}
+% Right: two video candidates, feature values aren't ratings.
+\T{7.64}{2.89}{7.47}{8}{forest}{\textbf{CANDIDATE VIDEO FEATURES: (COMEDY, ACTION)}}
+\SitcomThumb{7.64}{3.44}{1.76}{1.06}\T{9.68}{3.49}{3.87}{12}{fg}{\textbf{A / Sitcom 2}}\T{9.68}{3.99}{3.87}{10}{muted}{$\mathbf a=(4,0)$}
+\ActionThumb{7.64}{4.82}{1.76}{1.06}\T{9.68}{4.87}{3.87}{12}{fg}{\textbf{B / Action trailer}}\T{9.68}{5.37}{3.87}{10}{muted}{$\mathbf b=(1,4)$}
+\only<2->{\draw[-{Latex[length=2.8mm]},goldink,line width=1.6pt] (1.44,6.9)--(4.64,6.9);\T{4.83}{6.44}{1.9}{12}{goldink}{\textbf{A}}\draw[goldink,line width=.8pt] (2.35,6.9) arc[start angle=0,end angle=-18.435,radius=.91];\C{2.62}{6.66}{8}{goldink}{$\theta_A$}\T{14.03}{3.67}{1.2}{17}{goldink}{\textbf{0.95}}}
+\only<3->{\draw[-{Latex[length=2.8mm]},muted,line width=1.3pt] (1.44,6.9)--(2.24,3.7);\T{2.43}{3.54}{1.3}{12}{muted}{\textbf{B}}\draw[muted,densely dashed,line width=.7pt] (3.006,6.378) arc[start angle=-18.435,end angle=-75.964,radius=1.65];\C{2.95}{5.51}{8}{muted}{$\theta_B$}\T{14.03}{5.05}{1.2}{17}{muted}{\textbf{0.54}}}
+\only<4->{\T{7.64}{6.14}{7.5}{14}{forest}{$\displaystyle \mathrm{sim}(\mathbf p,\mathbf v)=\frac{\mathbf p\cdot\mathbf v}{\|\mathbf p\|\,\|\mathbf v\|}$}\fill[softgold,rounded corners=2.5mm] (7.64,7.51) rectangle (15.15,8.13);\T{7.87}{7.71}{7.0}{11}{charcoal}{$0.95 > 0.54$\qquad \textbf{Recommend A.}}}
+\Footer{Toy feature vectors, not star ratings. Calculated cosine scores: A = 0.9487; B = 0.5369. [4,5]}
+\end{canvas}\Force{4}
+\end{frame}
+
+% FRAME 9 — 2 overlays — 02:43–03:00
+\begin{frame}[plain,t,label=handoff]
+\Dark
+\begin{canvas}
+\T{.85}{.6}{14.2}{8}{gold}{\textbf{07 / THE NEXT QUESTION}}
+\T{.85}{1.48}{13.8}{31}{ivory}{Can Bob discover\\{\editorial something different?}}
+\T{.85}{4.02}{13.4}{12}{sage}{Familiar features can mean more of the same.}
+\draw[gold,line width=1.5pt] (.88,5.01)--(.88,6.42);
+\T{1.2}{5.01}{13.3}{19}{ivory}{What if people with Bob's taste love\\a video with completely different tags?}
+\only<2->{\T{.85}{7.05}{12.8}{25}{gold}{\textbf{Collaborative filtering}}\draw[-{Latex[length=4mm]},gold,line width=1.3pt] (13.23,7.45)--(15.03,7.45);\T{.88}{8.05}{13.3}{8}{sage}{My teammate takes the story from here.}}
+\BareFooter
+\end{canvas}\Force{2}
+\end{frame}

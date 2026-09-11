@@ -1,0 +1,189 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=20mm]{geometry}
+\usepackage{lmodern}
+\usepackage{fontspec}
+\setmainfont{NimbusSans-Regular.otf}[Path=fonts/,BoldFont=NimbusSans-Bold.otf,ItalicFont=NimbusSans-Italic.otf]
+\usepackage{amsmath,booktabs,array,xcolor,hyperref,enumitem}
+\definecolor{forest}{HTML}{245842}
+\definecolor{charcoal}{HTML}{17201D}
+\hypersetup{colorlinks=true,urlcolor=forest,linkcolor=forest,pdftitle={Sami | Timed Speaker Guide},pdfauthor={Sami}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist[itemize]{leftmargin=15pt,itemsep=2pt,topsep=2pt}
+\newcommand{\parttitle}[2]{\vspace{9pt}{\color{forest}\large\bfseries #1}\hfill{\small #2}\par}
+\newcommand{\cue}[1]{\par{\small\color{forest}\textbf{Click cue:} #1}\par}
+\newcommand{\src}[1]{{\footnotesize\color{forest}[Sources] #1}\par}
+\begin{document}
+{\color{forest}\small RECOMMENDATION ALGORITHMS / SPEAKER 1}\par
+{\fontsize{27}{31}\selectfont\bfseries Sami's three-minute opening}\par
+Use this guide for rehearsal. Project the separate presentation PDF.
+
+\parttitle{Your route through the deck}{180 seconds}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}p{12mm}p{75mm}p{26mm}p{24mm}@{}}
+\toprule
+\textbf{Frame}&\textbf{Purpose}&\textbf{Time window}&\textbf{PDF pages}\\\midrule
+1&Open with the topic and team&0:00--0:10&1\\
+2&Introduce Bob&0:10--0:25&2--3\\
+3&Show the next-day feed&0:25--0:45&4--6\\
+4&Explain the recommendation job&0:45--1:02&7--9\\
+5&Explicit and implicit feedback&1:02--1:26&10--12\\
+6&Read the user--item matrix&1:26--1:48&13--15\\
+7&Build a content profile&1:48--2:15&16--18\\
+8&Compare directions and rank&2:15--2:43&19--22\\
+9&Ask the handoff question&2:43--3:00&23--24\\\bottomrule
+\end{tabular}
+
+\parttitle{How to deliver it}{}
+Use the next two pages as a rehearsal script. The time windows include
+clicks and pauses. Practise once with a timer, then adjust to your natural pace.
+\begin{itemize}
+\item Start on page 1. Use single-page, full-screen mode. There are 23
+advances to reach the final page.
+\item Look at the audience for ``Coincidence?'' Point at Bob's matrix row and
+the two angles. Explain the picture; do not read every formula symbol.
+\item Ask the final question yourself, pause, then turn to your teammate.
+It is a handoff, not a Q/A invitation.
+\item If over time, omit ``A familiar theme keeps appearing'' and frame 7's
+numerical-profile sentence. Retain the feedback distinction and handoff.
+\end{itemize}
+
+\parttitle{What the rubric rewards}{30 marks}
+{\small\begin{tabular}{@{}p{46mm}rp{94mm}@{}}
+\toprule
+\textbf{Criterion}&\textbf{Marks}&\textbf{Where this deck supports it}\\\midrule
+Technical slide quality&8&TikZ figures, native mathematics, staged Beamer overlays.\\
+General slide quality&5&Limited copy, consistent palette, strong contrast and spacing.\\
+Slide contents&5&Feedback, matrix, content features, similarity and limitation.\\
+Presentation&10&Bob's story, timed delivery, purposeful gestures and handoff.\\
+WoW factor&2&Original character doodles, a restrained visual identity and reveals.\\\bottomrule
+\end{tabular}}
+\vfill
+{\footnotesize Rubric accessed 8 September 2026. English delivery; individual preparation and evaluation; three minutes per member; no Q/A. This is a coverage map, not a predicted grade.}
+\newpage
+
+{\color{forest}\small SPEAKING SCRIPT / FIRST HALF}\par
+{\fontsize{24}{28}\selectfont\bfseries Let Bob introduce the problem.}
+
+\parttitle{1 / Recommendation algorithms.}{0:00--0:10}
+Hello everyone. We're Group SS, and our topic is recommendation algorithms.
+\cue{Page 1: greet the audience, briefly acknowledge the team, then advance.}
+\src{Original TikZ opening composition; the instructor line is intentionally blank for completion.}
+
+\parttitle{2 / Your next favorite.}{0:10--0:25}
+I'm Sami. I will skip the formal definition and let our friend Bob help us.
+On Saturday morning, Bob wakes up, grabs his phone, and watches a funny
+YouTube video.
+\cue{Page 2: start the story. Advance to page 3 on ``our friend Bob.''}
+\src{Bob is fictional and drawn entirely in TikZ. The Saturday story follows Sami's brief.}
+
+\parttitle{3 / Sunday looks familiar.}{0:25--0:45}
+The next morning, he sees more movie bloopers, sitcom clips, and stand-up
+comedy. A familiar theme keeps appearing. This cannot be just a coincidence.
+Something is happening behind the screen. What happened here is what we call
+a recommendation system.
+\cue{Page 4: ``The next morning.'' Page 5: ``sitcom clips.'' Page 6: ``coincidence.''}
+\src{[1] supports watch history as a signal. This is an illustrative story, not a guaranteed next-day outcome. Original TikZ feed and content doodles.}
+
+\parttitle{4 / A ranked guess.}{0:45--1:02}
+It observes Bob's behavior, builds a model of his preferences, scores
+candidate videos, and ranks them. The result is an informed guess about
+what he might enjoy next.
+\cue{Page 7: ``observes.'' Page 8: ``builds a model.'' Page 9: ``ranks them.''}
+\src{[2]; simplified teaching pipeline. Original TikZ diagram and illustrative ranking bars.}
+
+\parttitle{5 / Bob tells us in two ways.}{1:02--1:26}
+Bob gives two kinds of feedback. Explicit feedback is what he says: a rating,
+a like, or a dislike. Implicit feedback is what he does: how long he watches,
+whether he replays, or whether he skips. These actions are clues, not proof
+that he liked something.
+\cue{Page 10: explicit feedback. Page 11: ``Implicit feedback.'' Page 12: ``clues, not proof.''}
+\src{[3]; original TikZ stars and watch-progress graphic.}
+
+\vfill
+\textbf{Checkpoint at 1:26:} Bob's story is complete, and the audience knows
+where feedback comes from. You have 94 seconds left for the matrix,
+content-based explanation and handoff.
+\newpage
+
+{\color{forest}\small SPEAKING SCRIPT / SECOND HALF}\par
+{\fontsize{24}{28}\selectfont\bfseries Turn the story into a model.}
+
+\parttitle{6 / A few ratings. Many unknowns.}{1:26--1:48}
+We can organize ratings into a user--item matrix. Rows are people; columns
+are videos. Bob gave bloopers five stars. Most entries are unknown. Unknown
+does not mean disliked. We want to score a video Bob has never rated.
+\cue{Page 13: point from Bob to the 5. Page 14: reveal the full matrix. Page 15: emphasize the highlighted question mark.}
+\src{[3]; original toy data, with five observed ratings and seven unknown entries.}
+
+\parttitle{7 / Describe videos. Learn Bob's taste.}{1:48--2:15}
+One approach is content-based filtering. Describe videos using features
+such as comedy and action. Combine those features with Bob's feedback to
+build his taste profile. In this small example, his profile is three for
+comedy and one for action. Then compare new videos with that profile.
+\cue{Page 16: name the approach. Page 17: reveal item features. Page 18: reveal Bob's profile.}
+\src{[4]; original illustrative feature vector and TikZ diagram. The vector is a teaching assumption, not an estimate fitted to the preceding table.}
+
+\parttitle{8 / The closer direction wins.}{2:15--2:43}
+Here, each arrow represents a feature vector. The sitcom points almost in
+Bob's direction; the action trailer points further away. Cosine similarity
+compares their directions. We get zero point nine five for the sitcom and zero
+point five four for the trailer, so the sitcom ranks first.
+\cue{Page 19: point to Bob. Page 20: show A. Page 21: show B. Page 22: reveal the formula and final recommendation.}
+\src{[4,5]; exact original calculation shown on page 4 of this guide, original TikZ geometry and thumbnails. ``Sitcom 2'' is a new candidate, different from the rated ``Sitcom 1.''}
+
+\parttitle{9 / Can Bob discover something different?}{2:43--3:00}
+But a friend might ask: what if people with Bob's taste love a video with
+completely different tags? That leads to collaborative filtering, which my
+teammate will explain next.
+\cue{Page 23: ask the question and pause briefly. Page 24: say ``collaborative filtering,'' then turn to your teammate.}
+\src{[6] for the limitation of matching existing interests; [3] for the collaborative handoff.}
+\vfill
+\textbf{Scope boundary:} You introduce the next method by name. Its mechanics,
+neighbors, matrix factorization and later topics belong to your teammates.
+\newpage
+
+{\color{forest}\small UNDERSTANDING AND REFERENCES}\par
+{\fontsize{24}{28}\selectfont\bfseries The numbers behind the picture.}
+
+The coordinates in frame 8 are \textbf{content-feature strengths}, not star
+ratings. For this illustration, let Bob's profile be
+$\mathbf p=(3,1)$, the new sitcom be $\mathbf a=(4,0)$, and the action trailer
+be $\mathbf b=(1,4)$. Both axes have the same scale.
+\[
+\operatorname{sim}(\mathbf p,\mathbf a)
+=\frac{3\cdot4+1\cdot0}{\sqrt{3^2+1^2}\sqrt{4^2+0^2}}
+=\frac{12}{\sqrt{160}}\approx0.9487,
+\]
+\[
+\operatorname{sim}(\mathbf p,\mathbf b)
+=\frac{3\cdot1+1\cdot4}{\sqrt{3^2+1^2}\sqrt{1^2+4^2}}
+=\frac{7}{\sqrt{170}}\approx0.5369.
+\]
+The angle to A is about $18.4^\circ$; to B, about $57.5^\circ$.
+A has the smaller angle and the higher cosine score. These scores are
+similarities, not probabilities of enjoyment. Cosine compares direction,
+normalizing away vector length. It is undefined for a zero vector; a real
+system must provide a fallback when a usable profile is missing.
+
+\textbf{Keep three distinctions clear.} Ratings record feedback about a
+particular item. Features describe its content. A user profile summarizes
+the user's preferences in that feature space. A possible construction is a
+weighted average of positively received items' feature vectors; our $(3,1)$
+is simply chosen to make the example easy to see.
+
+\parttitle{Sources keyed to the slide footers}{}
+{\small
+[1] YouTube Help. \href{https://support.google.com/youtube/answer/95725?hl=en}{View, delete, or turn on or off watch history}. Watch history can inform relevant recommendations.\\[4pt]
+[2] Google for Developers. \href{https://developers.google.com/machine-learning/recommendation/overview/types}{Recommendation systems overview}. Candidate generation, scoring and re-ranking.\\[4pt]
+[3] Google for Developers. \href{https://developers.google.com/machine-learning/recommendation/collaborative/basics}{Collaborative filtering: movie recommendation example}. Feedback categories, user--item matrix orientation and collaborative relationships.\\[4pt]
+[4] Google for Developers. \href{https://developers.google.com/machine-learning/recommendation/content-based/basics}{Content-based filtering}. Item features and this user's preferences.\\[4pt]
+[5] Google for Developers. \href{https://developers.google.com/machine-learning/recommendation/overview/candidate-generation}{Candidate generation overview}. Similarity measures, including cosine.\\[4pt]
+[6] Google for Developers. \href{https://developers.google.com/machine-learning/recommendation/content-based/summary}{Content-based filtering advantages and disadvantages}. Limits of existing-interest matching.\\[4pt]
+Assessment: \href{https://docs.google.com/spreadsheets/d/13hVJ5WrcioEIvfQzsFdadwhF6t6n7sJk/edit?gid=137144296}{Course presentation rubric}, read 8 September 2026.\\[4pt]
+Implementation: \href{https://github.com/josephwright/beamer/blob/main/doc/beamerug-overlays.tex}{Official Beamer overlay documentation}, reviewed through GitHub.\\[4pt]
+Design reference: \href{https://www.figma.com/board/jf0wu99bi2lEHuuL2iPeoO}{Editable FigJam content-based flow}. The presentation's figures are independently authored in TikZ.
+}
+
+{\footnotesize [Sources / assets] Sami's supplied study PDF and the earlier group Beamer deck informed the scope and sequence. Bob, the content thumbnails, matrices, arrows, stars, progress bars and geometry are original native TikZ. URW fonts are bundled with their license. No external screenshots or generated images are used in the slides.}
+\end{document}
