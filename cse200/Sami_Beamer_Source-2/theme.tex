@@ -35,11 +35,11 @@
 \newcommand{\C}[5]{\node[anchor=center,inner sep=0pt,text=#4,font=\fontsize{#3}{#3}\selectfont] at (#1,#2) {#5};}
 \newcommand{\Header}[2]{%
   \T{.8}{.52}{8.5}{7}{accent}{\textbf{#1}}%
-  \T{12.2}{.56}{2.95}{5.6}{subtle}{\textbf{SAMI}\quad /\quad SPEAKER 1}%
   \T{.8}{1.03}{14.4}{22}{fg}{\textbf{#2}}%
 }
+\newcommand{\TotalPresentationFrames}{19}
 \newcommand{\Tracker}{%
-  \pgfmathsetmacro{\progressx}{.8+14.4*(\insertframenumber/9)}%
+  \pgfmathsetmacro{\progressx}{.8+14.4*(\insertframenumber/\TotalPresentationFrames)}%
   \draw[linecol,line width=.55pt] (.8,8.36)--(15.2,8.36);%
   \draw[lime,line width=1.55pt,line cap=round] (.8,8.36)--(\progressx,8.36);%
   \fill[lime] (\progressx,8.36) circle (.055);%
@@ -48,12 +48,12 @@
   \Tracker%
   \T{.8}{8.54}{12.9}{5.5}{subtle}{#1}%
   \T{12.22}{8.52}{2.02}{6}{subtle}{\textbf{Sami -- 2305055}}%
-  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,09}%
+  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,\TotalPresentationFrames}%
 }
 \newcommand{\BareFooter}{%
   \Tracker%
   \T{12.22}{8.52}{2.02}{6}{subtle}{\textbf{Sami -- 2305055}}%
-  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,09}%
+  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,\TotalPresentationFrames}%
 }
 \newcommand{\Play}[3]{\fill[#3] (#1,#2) circle (.20);\fill[ivory] ({#1-.055},{#2-.09})--({#1-.055},{#2+.09})--({#1+.105},#2)--cycle;}
 % Reusable hand-drawn TikZ characters and content thumbnails.

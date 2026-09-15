@@ -1,0 +1,88 @@
+% ---------- Adapter for the supplied continuation ----------
+% Colors and helpers are local to each frame, so Sami's frames remain intact.
+\usepackage{bm,booktabs,array,adjustbox}
+\usetikzlibrary{positioning,fit,matrix,overlay-beamer-styles}
+\newsavebox{\PartContent}
+\newsavebox{\PartTitle}
+\newcommand{\PartSectionOffset}{2}
+\newcommand{\PartSectionNumber}{%
+  \ifnum\numexpr\insertframenumber-\PartSectionOffset\relax<10 0\fi
+  \number\numexpr\insertframenumber-\PartSectionOffset\relax}
+\newcommand{\PartPalette}[1]{%
+  \csname #1\endcsname
+  \colorlet{ink}{fg}\colorlet{muted}{subtle}%
+  \colorlet{blue}{accent}\colorlet{cyan}{accent}%
+  \colorlet{teal}{forest}\colorlet{amber}{goldink}%
+  \colorlet{rose}{goldink}\colorlet{violet}{forest}%
+  \colorlet{paleBlue}{softgreen}\colorlet{paleTeal}{softgreen}%
+  \colorlet{paleAmber}{softgold}\colorlet{paleRose}{softgold}%
+  \colorlet{paleViolet}{softgreen}\colorlet{panel}{bg}%
+  \color{fg}%
+}
+\newcommand{\PartHeader}[2]{%
+  \T{.8}{.52}{14}{7}{accent}{\textbf{#1}}%
+  \node[anchor=north west,inner sep=0pt,text=fg]
+    at (.8,1.03) {\begin{adjustbox}{max width=14.4cm}\usebox{\PartTitle}\end{adjustbox}};%
+}
+\newcommand{\PartFooter}[1]{%
+  \Tracker%
+  \ifnum\insertframenumber<16
+    \T{12.22}{8.52}{2.02}{6}{subtle}{\textbf{Akib -- 2305033}}%
+  \else
+    \T{12.22}{8.52}{2.02}{6}{subtle}{\textbf{Kanon -- 2305052}}%
+  \fi
+  \T{14.42}{8.50}{.78}{7}{subtle}{\textbf{\insertframenumber}\,/\,\TotalPresentationFrames}%
+}
+\newcommand{\PartStart}[4]{%
+  \PartPalette{#1}%
+  \sbox{\PartTitle}{{\normalfont\sffamily\bfseries\fontsize{22}{25.3}\selectfont #3}}%
+  \begin{canvas}
+    \PartHeader{#2}{#3}
+    \PartFooter{#4}
+  \end{canvas}%
+}
+% Same bold Nimbus hierarchy as the reference; no extra font dependency.
+\newcommand{\textbfPro}[1]{{\sffamily\bfseries\fontsize{12}{14}\selectfont #1}}
+\newcommand{\micro}[1]{{\fontsize{8}{10}\selectfont\textcolor{subtle}{#1}}}
+\newcommand{\callout}[3][]{%
+  \begin{center}\begin{tikzpicture}
+    \node[rectangle,draw=accent,fill=paleBlue,text=fg,line width=.7pt,
+      inner xsep=10pt,inner ysep=7pt,text width=#2,align=left,
+      font=\fontsize{11}{13.2}\selectfont,#1]
+      {\hyphenpenalty=10000\relax#3\par};
+  \end{tikzpicture}\end{center}%
+}
+\tikzset{
+  box/.style={rectangle,rounded corners=2.2mm,draw=linecol,fill=panel,text=fg,align=center,
+    inner sep=7pt,font=\fontsize{11}{13.2}\selectfont,line width=.85pt},
+  boxblue/.style={box,draw=blue,fill=paleBlue},
+  boxteal/.style={box,draw=teal,fill=paleTeal},
+  boxamber/.style={box,draw=amber,fill=paleAmber},
+  boxrose/.style={box,draw=rose,fill=paleRose},
+  boxviolet/.style={box,draw=violet,fill=paleViolet},
+  user/.style={circle,draw=forest,fill=forest,text=ivory,
+    minimum size=7mm,inner sep=0pt,font=\fontsize{9}{10}\selectfont\bfseries,line width=.8pt},
+  item/.style={circle,draw=goldink,fill=gold,text=charcoal,
+    minimum size=7mm,inner sep=0pt,font=\fontsize{9}{10}\selectfont\bfseries,line width=.8pt},
+  feat/.style={circle,draw=forest,fill=sage,text=charcoal,
+    minimum size=7mm,inner sep=0pt,font=\fontsize{9}{10}\selectfont\bfseries,line width=.8pt},
+  arr/.style={line width=1.1pt,draw=accent},
+  greyarr/.style={line width=.8pt,draw=subtle},
+  dashedarr/.style={line width=1.1pt,draw=rose,dashed}
+}
+% Place the original content between the fixed reference header and footer.
+% Invisible overlay objects still reserve their space.
+\newenvironment{PartBody}{%
+  \begin{lrbox}{\PartContent}\begin{minipage}{14.4cm}
+    \color{fg}\sffamily\fontsize{11}{13.2}\selectfont
+    \setlength{\parindent}{0pt}%
+}{%
+  \end{minipage}\end{lrbox}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=center,inner sep=0pt,text=fg]
+      at ([yshift=-5.15cm]current page.north)
+      {\begin{adjustbox}{max totalsize={14.4cm}{5.7cm}}\usebox{\PartContent}\end{adjustbox}};
+  \end{tikzpicture}%
+}
+
+\hypersetup{pdftitle={Recommendation Algorithms},pdfauthor={Presentation team},pdfsubject={Recommendation algorithms}}

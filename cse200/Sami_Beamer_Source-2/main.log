@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.9.9)  9 SEP 2026 15:50
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.9.9)  14 SEP 2026 23:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1871,29 +1871,131 @@ brarydecorations.pathreplacing.code.tex))
 (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarydecorations.pathmorphing.code.tex
 (/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
-brarydecorations.pathmorphing.code.tex))) (./main.aux)
+brarydecorations.pathmorphing.code.tex))) (./speaker_two_three_setup.tex
+(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/lmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen329
+\lightrulewidth=\dimen330
+\cmidrulewidth=\dimen331
+\belowrulesep=\dimen332
+\belowbottomsep=\dimen333
+\aboverulesep=\dimen334
+\abovetopsep=\dimen335
+\cmidrulesep=\dimen336
+\cmidrulekern=\dimen337
+\defaultaddspace=\dimen338
+\@cmidla=\count382
+\@cmidlb=\count383
+\@aboverulesep=\dimen339
+\@belowrulesep=\dimen340
+\@thisruleclass=\count384
+\@lastruleclass=\count385
+\@thisrulewidth=\dimen341
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen342
+\ar@mcellbox=\box85
+\extrarowheight=\dimen343
+\NC@list=\toks51
+\extratabsurround=\skip67
+\backup@length=\skip68
+\ar@cellbox=\box86
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box87
+)
+\tc@llx=\dimen344
+\tc@lly=\dimen345
+\tc@urx=\dimen346
+\tc@ury=\dimen347
+Package trimclip Info: Using driver 'tc-xetex.def'.
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen348
+\adjbox@Height=\dimen349
+\adjbox@Depth=\dimen350
+\adjbox@Totalheight=\dimen351
+\adjbox@pwidth=\dimen352
+\adjbox@pheight=\dimen353
+\adjbox@pdepth=\dimen354
+\adjbox@ptotalheight=\dimen355
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count386
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box88
+\sift@deathcycles=\count387
+\@vwid@loff=\dimen356
+\@vwid@roff=\dimen357
+)
+==> First Aid for varwidth.sty applied!
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/aobs-tikz/tikzlibraryoverlay-beam
+er-styles.code.tex)
+\PartContent=\box89
+\PartTitle=\box90
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1929,7 +2031,7 @@ LaTeX Font Info:    ... okay on input line 4.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 4.
+Package hyperref Info: Link coloring OFF on input line 5.
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1959,13 +2061,13 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-\c@mv@tabular=\count382
-\c@mv@boldtabular=\count383
+\c@mv@tabular=\count388
+\c@mv@boldtabular=\count389
  (./main.nav)
 Requested font "[lmsans8-regular]:mapping=tex-text;" at 6.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans8-regular
 .otf
- (./sami_frames.tex
+ (./speaker_one_frames.tex
 Requested font "[lmsans17-regular]:mapping=tex-text;" at 27.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-regula
 r.otf
@@ -2050,6 +2152,18 @@ tfm
 Requested font "msbm5" at 5.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.
 tfm
+Requested font "rm-lmbx7" at 7.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
+Requested font "rm-lmbx5" at 5.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
+Requested font "lmmib7" at 7.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
+Requested font "lmmib5" at 5.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib5.tfm
+Requested font "lmbsy7" at 7.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
+Requested font "lmbsy5" at 5.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy5.tfm
 Requested font "[lmsans10-bold]:mapping=tex-text;" at 6.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
 tf
@@ -2065,11 +2179,9 @@ tf
 Requested font "[lmsans17-regular]:mapping=tex-text;" at 39.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-regula
 r.otf
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <39> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 69.
-Requested font "[lmsans17-oblique]:mapping=tex-text;" at 39.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-obliqu
-e.otf
+Requested font "[lmsans10-bold]:mapping=tex-text;" at 39.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
+tf
 Requested font "[lmsans12-regular]:mapping=tex-text;" at 14.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans12-regula
 r.otf
@@ -2095,12 +2207,6 @@ r.otf
 [3
 
 ]
-Requested font "[lmsans8-regular]:mapping=tex-text;" at 5.6pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans8-regular
-.otf
-Requested font "[lmsans10-bold]:mapping=tex-text;" at 5.6pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
-tf
 Requested font "[lmsans17-regular]:mapping=tex-text;" at 22.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-regula
 r.otf
@@ -2307,6 +2413,18 @@ Requested font "rm-lmbx12" at 16.09993pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
 Requested font "rm-lmbx12" at 11.5pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
+Requested font "lmmib10" at 23.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmmib10" at 16.09993pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmmib10" at 11.5pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmbsy10" at 23.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+Requested font "lmbsy10" at 16.09993pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+Requested font "lmbsy10" at 11.5pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
  [18
 
 ]
@@ -2334,12 +2452,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 178.
-Requested font "rm-lmbx12" at 12.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-Requested font "rm-lmbx8" at 8.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
-Requested font "rm-lmbx6" at 6.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 Requested font "msam10" at 12.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
 .tfm
@@ -2358,6 +2470,24 @@ Requested font "msbm10" at 8.0pt
 Requested font "msbm7" at 6.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.
 tfm
+Requested font "rm-lmbx12" at 12.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
+Requested font "rm-lmbx8" at 8.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
+Requested font "rm-lmbx6" at 6.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
+Requested font "lmmib10" at 12.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmmib10" at 8.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmmib7" at 6.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
+Requested font "lmbsy10" at 12.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+Requested font "lmbsy10" at 8.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+Requested font "lmbsy7" at 6.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
 Requested font "rm-lmr10" at 10.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 Requested font "lmmi10" at 10.0pt
@@ -2366,18 +2496,18 @@ Requested font "lmsy10" at 10.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 178.
-Requested font "rm-lmbx10" at 10.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
-Requested font "rm-lmbx7" at 7.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
-Requested font "rm-lmbx5" at 5.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
 Requested font "msam10" at 10.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
 .tfm
 Requested font "msbm10" at 10.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
 .tfm
+Requested font "rm-lmbx10" at 10.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
+Requested font "lmmib10" at 10.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmbsy10" at 10.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 
 [19
 
@@ -2403,10 +2533,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9.79996> on input line 178.
-Requested font "rm-lmbx12" at 14.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-Requested font "rm-lmbx10" at 9.79996pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 Requested font "msam10" at 14.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
 .tfm
@@ -2419,6 +2545,18 @@ Requested font "msbm10" at 14.0pt
 Requested font "msbm10" at 9.79996pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
 .tfm
+Requested font "rm-lmbx12" at 14.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
+Requested font "rm-lmbx10" at 9.79996pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
+Requested font "lmmib10" at 14.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmmib10" at 9.79996pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmbsy10" at 14.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+Requested font "lmbsy10" at 9.79996pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 178.
 Requested font "rm-lmr12" at 11.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
@@ -2444,12 +2582,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7.69997> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5.5> on input line 178.
-Requested font "rm-lmbx12" at 11.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-Requested font "rm-lmbx8" at 7.69997pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
-Requested font "rm-lmbx6" at 5.5pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 Requested font "msam10" at 11.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
 .tfm
@@ -2468,6 +2600,24 @@ tfm
 Requested font "msbm5" at 5.5pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.
 tfm
+Requested font "rm-lmbx12" at 11.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
+Requested font "rm-lmbx8" at 7.69997pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
+Requested font "rm-lmbx6" at 5.5pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
+Requested font "lmmib10" at 11.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmmib7" at 7.69997pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
+Requested font "lmmib5" at 5.5pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib5.tfm
+Requested font "lmbsy10" at 11.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+Requested font "lmbsy7" at 7.69997pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
+Requested font "lmbsy5" at 5.5pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy5.tfm
 Requested font "[lmsans10-bold]:mapping=tex-text;" at 11.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
 tf
@@ -2477,11 +2627,9 @@ tf
 Requested font "[lmsans17-regular]:mapping=tex-text;" at 31.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-regula
 r.otf
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <31> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 192.
-Requested font "[lmsans17-oblique]:mapping=tex-text;" at 31.0pt
- -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-obliqu
-e.otf
+Requested font "[lmsans10-bold]:mapping=tex-text;" at 31.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
+tf
 Requested font "[lmsans17-regular]:mapping=tex-text;" at 19.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-regula
 r.otf
@@ -2495,6 +2643,160 @@ Requested font "[lmsans10-bold]:mapping=tex-text;" at 25.0pt
  -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
 tf
  [24
+
+]) (./speaker_two_three_frames.tex
+Requested font "rm-lmr10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
+Requested font "lmmi10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
+Requested font "lmsy10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 14.
+Requested font "msam10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
+.tfm
+Requested font "msbm10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
+.tfm
+Requested font "rm-lmbx10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
+Requested font "lmmib10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmbsy10" at 10.95pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+ [25
+
+] [26
+
+]
+[27
+
+] [28
+
+] [29
+
+] [30
+
+] [31
+
+] [32
+
+] [33
+
+] [34
+
+] [35
+
+] [36
+
+] [37
+
+] [38
+
+] [39
+
+]
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <11> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 95.
+Requested font "[lmsans12-oblique]:mapping=tex-text;" at 11.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans12-obliqu
+e.otf
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <14> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 95.
+Requested font "[lmsans12-oblique]:mapping=tex-text;" at 14.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans12-obliqu
+e.otf
+ [40
+
+] [41
+
+]
+[42
+
+] [43
+
+]
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <15> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 116.
+Requested font "[lmsans12-oblique]:mapping=tex-text;" at 15.0pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans12-obliqu
+e.otf
+ [44
+
+] [45
+
+] [46
+
+] [47
+
+] [48
+
+] [49
+
+] [50
+
+]
+Requested font "[lmsans17-regular]:mapping=tex-text;" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans17-regula
+r.otf
+Requested font "[lmsans10-bold]:mapping=tex-text;" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.o
+tf
+Requested font "rm-lmr17" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmr17.tfm
+Requested font "lmmi12" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
+Requested font "lmsy10" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 156.
+Requested font "msam10" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10
+.tfm
+Requested font "msbm10" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10
+.tfm
+Requested font "rm-lmbx12" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
+Requested font "lmmib10" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+Requested font "lmbsy10" at 17.28pt
+ -> /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+ [51
+
+] [52
+
+] [53
+
+] [54
+
+] [55
+
+] [56
+
+]
+[57
+
+] [58
+
+] [59
+
+] [60
+
+] [61
+
+] [62
+
+] [63
+
+] [64
+
+] [65
+
+] [66
+
+] [67
 
 ])
 \tf@nav=\write6
@@ -2515,12 +2817,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29599 strings out of 468168
- 646715 string characters out of 5432816
- 1115520 words of memory out of 5000000
- 57649 multiletter control sequences out of 15000+600000
- 749156 words of font info for 218 fonts, out of 8000000 for 9000
+ 31480 strings out of 468168
+ 682524 string characters out of 5432816
+ 1144477 words of memory out of 5000000
+ 59470 multiletter control sequences out of 15000+600000
+ 773640 words of font info for 265 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 128i,11n,123p,543b,908s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,14n,123p,550b,1321s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (24 pages).
+Output written on main.pdf (67 pages).
