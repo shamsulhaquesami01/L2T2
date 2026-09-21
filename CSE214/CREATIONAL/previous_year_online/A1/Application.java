@@ -8,9 +8,7 @@ public class Application {
          Scanner sc = new Scanner(System.in);
 
          String msg =sc.next();
-
-         Factory fac = new Factory();
-         Transport trans = fac.createTransport(msg);
+         Transport trans = Factory.createTransport(msg);
          trans.deliver();
          
 
